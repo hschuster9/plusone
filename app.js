@@ -26,9 +26,7 @@ angular
   }
 
   function ActivityFactoryFunction($resource){
-    return $resource("", {}, {
-      update: {method: "PUT"}
-    })
+    return $resource("http://localhost:3000/activities/:id");
   }
 
   function ActivityIndexControllerFunction(ActivityFactory, $state){
