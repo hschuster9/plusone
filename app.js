@@ -7,11 +7,11 @@ angular
     "$stateProvider",
     RouterFunction
   ])
-  .factory(["ActivityFactory",
+  .factory("ActivityFactory", [
   "$resource",
   ActivityFactoryFunction
   ])
-  .controller(["ActivityIndexController",
+  .controller("ActivityIndexController", [
   "ActivityFactory",
   ActivityIndexControllerFunction
   ])
@@ -21,14 +21,15 @@ angular
       .state("activityIndex", {
         url: "",
         templateUrl: "ng-views/index.html",
+        controller: "ActivityIndexController",
         controllerAs: "vm"
       })
   }
 
   function ActivityFactoryFunction($resource){
-    return $resource("http://localhost:3000/activities/:id", {}, {
-      update: {method: "PUT"}
-    })
+    return  $resource("http://localhost:3000/activities/:id", {}, {
+        update: {method: "PUT"}
+      })
   }
 
   function ActivityIndexControllerFunction(ActivityFactory, $state){
