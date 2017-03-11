@@ -3,4 +3,5 @@
 <p>hi</p>
 <div data-ng-repeat="activity in vm.activities">
     <p>{{activity.name}}</p>
+    <a data-ui-sref="activityEdit({id: activity.id})">Edit Activity</a>
 </div>

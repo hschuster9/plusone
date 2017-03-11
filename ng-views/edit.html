@@ -1,0 +1,11 @@
+<h2>Edit Activity</h2>
+
+<form>
+  <input placeholder="Name" data-ng-model="vm.activity.name" />
+  <input placeholder="Location" data-ng-model="vm.activity.location" />
+  <input placeholder="Date" data-ng-model="vm.activity.date" />
+  <input placeholder="Time" data-ng-model="vm.activity.time" />
+  <input placeholder="Price (optional)" data-ng-model="vm.activity.price" />
+  <textarea="Blurb" data-ng-model="vm.activity.blurb"></textarea>
+  <button type="button" data-ng-click="vm.update()">Update</button>
+</form>

@@ -1,3 +1,5 @@
+"use strict";
+
 angular
   .module("superApp", [
     "ui.router",
@@ -15,6 +17,11 @@ angular
   "ActivityFactory",
   ActivityIndexControllerFunction
   ])
+  .controller("ActivityEditController", [
+    "ActivityFactory",
+    "$stateParams",
+    ActivityEditControllerFunction
+  ])
 
   function RouterFunction($stateProvider){
     $stateProvider
@@ -24,10 +31,16 @@ angular
         controller: "ActivityIndexController",
         controllerAs: "vm"
       })
+      .state("activityEdit", {
+        url: "/activities/edit",
+        templateUrl: "ng-views/edit.html",
+        controller: "ActivityEditController",
+        controllerAs: "vm"
+      })
   }
 
   function ActivityFactoryFunction($resource){
-    return  $resource("http://localhost:3000/activities/:id", {}, {
+    return  $resource("http://localhost:3000/activities/:id ", {}, {
         update: {method: "PUT"}
       })
   }
@@ -40,5 +53,12 @@ angular
       this.activity.$save(function(activity) {
         $state.go("activityIndex")
       })
+    }
+  }
+
+  function ActivityEditControllerFunction( ActivityFactory, $stateParams ){
+    this.activity = ActivityFactory.get({id: $stateParams.id});
+    this.update = function(){
+      this.activity.$update({id: $stateParams.id})
     }
   }
