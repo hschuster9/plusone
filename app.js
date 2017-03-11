@@ -20,6 +20,7 @@ angular
   .controller("ActivityEditController", [
     "ActivityFactory",
     "$stateParams",
+    "$state",
     ActivityEditControllerFunction
   ])
 
@@ -32,7 +33,7 @@ angular
         controllerAs: "vm"
       })
       .state("activityEdit", {
-        url: "/activities/edit",
+        url: "/activities/:id/edit",
         templateUrl: "ng-views/edit.html",
         controller: "ActivityEditController",
         controllerAs: "vm"
@@ -56,9 +57,12 @@ angular
     }
   }
 
-  function ActivityEditControllerFunction( ActivityFactory, $stateParams ){
+  function ActivityEditControllerFunction( ActivityFactory, $stateParams , $state){
     this.activity = ActivityFactory.get({id: $stateParams.id});
     this.update = function(){
-      this.activity.$update({id: $stateParams.id})
+      this.activity.$update({id: $stateParams.id},
+        function(superApp) {
+        $state.go("activityShow", {id: activity.id})
+      })
     }
   }
