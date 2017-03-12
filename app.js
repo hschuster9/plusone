@@ -19,6 +19,7 @@ angular
   ])
   .controller("ActivityNewController", [
     "ActivityFactory",
+    "$state",
     ActivityNewControllerFunction
   ])
   .controller("ActivityShowController", [
@@ -58,13 +59,22 @@ angular
         templateUrl: "ng-views/edit.html",
         controller: "ActivityEditController",
         controllerAs: "vm"
+<<<<<<< HEAD
       })
+=======
+      });
+>>>>>>> 28bf2bb87b5231de6599a9d727c5239f31a04119
   }
 
   function ActivityFactoryFunction($resource){
     return  $resource("http://localhost:3000/activities/:id ", {}, {
+<<<<<<< HEAD
         update: {method: "PUT"}
       })
+=======
+        update: {method: "PUT"},
+      });
+>>>>>>> 28bf2bb87b5231de6599a9d727c5239f31a04119
   }
 
   function ActivityIndexControllerFunction(ActivityFactory, $state){
@@ -75,9 +85,15 @@ angular
     this.activity = new ActivityFactory()
     this.create = function(){
       this.activity.$save(function(activity) {
+<<<<<<< HEAD
         $state.go("activityIndex")
       })
     }
+=======
+        $state.go("activityIndex");
+      });
+    };
+>>>>>>> 28bf2bb87b5231de6599a9d727c5239f31a04119
   }
 
   function ActivityShowControllerFunction(ActivityFactory, $stateParams){
@@ -89,7 +105,16 @@ angular
     this.update = function(){
       this.activity.$update({id: $stateParams.id},
         function(activity) {
+<<<<<<< HEAD
         $state.go("activityShow", {id: activity.id})
+=======
+        $state.go("activityShow", {id: activity.id});
+      })
+    }
+    this.destroy = function(){
+      this.activity.$delete({id: $stateParams.id}, function(activity){
+        $state.go("activityIndex")
+>>>>>>> 28bf2bb87b5231de6599a9d727c5239f31a04119
       })
     }
   }
