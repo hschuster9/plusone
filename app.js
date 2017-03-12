@@ -1,3 +1,5 @@
+"use strict";
+
 angular
   .module("superApp", [
     "ui.router",
@@ -15,15 +17,21 @@ angular
   "ActivityFactory",
   ActivityIndexControllerFunction
   ])
+  .controller("ActivityNewController", [
+    "ActivityFactory",
+    ActivityNewControllerFunction
+  ])
   .controller("ActivityShowControler", [
   "ActivityFactory",
   "$stateParams",
   ActivityShowControllerFunction
   ])
-  .controller("ActivityNewController", [
+  .controller("ActivityEditController", [
     "ActivityFactory",
-    ActivityNewControllerFunction
-  ])
+    "$stateParams",
+    "$state",
+    ActivityEditControllerFunction
+  ]);
 
   function RouterFunction($stateProvider){
     $stateProvider
@@ -33,24 +41,29 @@ angular
         controller: "ActivityIndexController",
         controllerAs: "vm"
       })
-      .state("activityShow", {
-        url: "/activities/:id",
-        templateUrl: "ng-views/show.html",
-        controller: "ActivityShowControler",
-        controllerAs: "vm"
-      ])
       .state("activityNew", {
         url: "/activities/new",
         templateUrl: "ng-views/new.html",
         controller: "ActivityNewController",
         controllerAs: "vm"
       })
+      .state("activityShow", {
+        url: "/activities/:id",
+        templateUrl: "ng-views/show.html",
+        controller: "ActivityShowControler",
+        controllerAs: "vm"
+      })
+      .state("activityEdit", {
+        url: "/activities/:id/edit",
+        templateUrl: "ng-views/edit.html",
+        controller: "ActivityEditController",
+      });
   }
 
   function ActivityFactoryFunction($resource){
     return  $resource("http://localhost:3000/activities/:id ", {}, {
         update: {method: "PUT"}
-      })
+      });
   }
 
   function ActivityIndexControllerFunction(ActivityFactory, $state){
@@ -61,11 +74,21 @@ angular
     this.activity = new ActivityFactory();
     this.create = function(){
       this.activity.$save(function(activity) {
-        $state.go("activityIndex")
-      })
-    }
+        $state.go("activityIndex"); 
+      });
+    };
   }
+
   function ActivityShowControllerFunction(ActivityFactory, $stateParams){
     this.activity = ActivityFactory.get({id: $stateParams.id});
-
  }
+
+  function ActivityEditControllerFunction( ActivityFactory, $stateParams , $state){
+    this.activity = ActivityFactory.get({id: $stateParams.id});
+    this.update = function(){
+      this.activity.$update({id: $stateParams.id},
+        function(activity) {
+        $state.go("activityShow", {id: activity.id});
+      });
+    };
+  }
