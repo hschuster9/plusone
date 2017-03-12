@@ -42,7 +42,8 @@ angular
 
   function ActivityFactoryFunction($resource){
     return  $resource("http://localhost:3000/activities/:id ", {}, {
-        update: {method: "PUT"}
+        update: {method: "GET"},
+
       })
   }
 
@@ -61,8 +62,8 @@ angular
     this.activity = ActivityFactory.get({id: $stateParams.id});
     this.update = function(){
       this.activity.$update({id: $stateParams.id},
-        function(superApp) {
-        $state.go("activityShow", {id: activity.id})
+        function(activity) {
+        $state.go("activityIndex", {id: activity.id})
       })
     }
   }
