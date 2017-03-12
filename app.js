@@ -15,6 +15,11 @@ angular
   "ActivityFactory",
   ActivityIndexControllerFunction
   ])
+  .controller("ActivityShowControler", [
+  "ActivityFactory",
+  "$stateParams",
+  ActivityShowControllerFunction
+  ])
   .controller("ActivityNewController", [
     "ActivityFactory",
     ActivityNewControllerFunction
@@ -28,6 +33,12 @@ angular
         controller: "ActivityIndexController",
         controllerAs: "vm"
       })
+      .state("activityShow", {
+        url: "/activities/:id",
+        templateUrl: "ng-views/show.html",
+        controller: "ActivityShowControler",
+        controllerAs: "vm"
+      ])
       .state("activityNew", {
         url: "/activities/new",
         templateUrl: "ng-views/new.html",
@@ -54,3 +65,7 @@ angular
       })
     }
   }
+  function ActivityShowControllerFunction(ActivityFactory, $stateParams){
+    this.activity = ActivityFactory.get({id: $stateParams.id});
+
+ }
