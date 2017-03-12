@@ -20,6 +20,10 @@ angular
   "$stateParams",
   ActivityShowControllerFunction
   ])
+  .controller("ActivityNewController", [
+    "ActivityFactory",
+    ActivityNewControllerFunction
+  ])
 
   function RouterFunction($stateProvider){
     $stateProvider
@@ -34,18 +38,26 @@ angular
         templateUrl: "ng-views/show.html",
         controller: "ActivityShowControler",
         controllerAs: "vm"
+      ])
+      .state("activityNew", {
+        url: "/activities/new",
+        templateUrl: "ng-views/new.html",
+        controller: "ActivityNewController",
+        controllerAs: "vm"
       })
   }
 
   function ActivityFactoryFunction($resource){
-    return  $resource("http://localhost:3000/activities/:id", {}, {
+    return  $resource("http://localhost:3000/activities/:id ", {}, {
         update: {method: "PUT"}
       })
   }
 
   function ActivityIndexControllerFunction(ActivityFactory, $state){
     this.activities = ActivityFactory.query();
+  }
 
+  function ActivityNewControllerFunction(ActivityFactory, $state){
     this.activity = new ActivityFactory();
     this.create = function(){
       this.activity.$save(function(activity) {
