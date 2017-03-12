@@ -38,7 +38,7 @@ angular
         templateUrl: "ng-views/show.html",
         controller: "ActivityShowControler",
         controllerAs: "vm"
-      ])
+      })
       .state("activityNew", {
         url: "/activities/new",
         templateUrl: "ng-views/new.html",
