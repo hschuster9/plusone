@@ -1,7 +1,6 @@
 <h1>Hey there! This is our index!</h1>
 
-<p>hi</p>
 <div data-ng-repeat="activity in vm.activities">
-    <p>{{activity.name}}</p>
-    <a data-ui-sref="activityEdit({id: activity.id})">Edit Activity</a>
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.name}}</a></p>
+    <p><a data-ui-sref="activityNew">NEW ACTIVITY LINK</a></p>
 </div>
