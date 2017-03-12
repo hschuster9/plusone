@@ -52,10 +52,8 @@ angular
         $state.go("activityIndex")
       })
     }
-
-
   }
-
   function ActivityShowControllerFunction(ActivityFactory, $stateParams){
     this.activity = ActivityFactory.get({id: $stateParams.id});
+
  }
