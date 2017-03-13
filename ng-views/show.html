@@ -13,6 +13,12 @@
   <p><a data-ui-sref="personEdit({activity_id: person.activity_id, id: person.id})">{{person.name}}</a></p>
 </div>
 
+<h2>MESSAGES!!!!</h2>
+<div data-ng-repeat="message in vm.messages">
+  <p>{{message.author}}</p>
+  <p>{{message.content}}</p>
+</div>
+
   <a data-ui-sref="activityEdit({id: vm.activity.id})">Edit Activity</a>
 </div>
 

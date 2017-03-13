@@ -18,6 +18,11 @@ angular
         update: {method: "PUT"},
       });
   })
+  .factory('MessageFactory', function($resource){
+    return $resource ("http://localhost:3000/activities/:activity_id/messages/:id", {}, {
+        update: {method: "PUT"},
+      });
+  })
   .controller("ActivityIndexController", [
     "ActivityFactory",
     ActivityIndexControllerFunction
@@ -30,6 +35,7 @@ angular
   .controller("ActivityShowController", [
     "ActivityFactory",
     "PeopleFactory",
+    "MessageFactory",
     "$stateParams",
     ActivityShowControllerFunction
   ])
@@ -51,6 +57,7 @@ angular
     "$state",
     PersonEditControllerFunction
   ])
+
 
   function RouterFunction($stateProvider){
     $stateProvider
@@ -111,9 +118,10 @@ angular
     };
   }
 
-  function ActivityShowControllerFunction(ActivityFactory, PeopleFactory, $stateParams){
+  function ActivityShowControllerFunction(ActivityFactory, PeopleFactory, MessageFactory, $stateParams){
     this.activity = ActivityFactory.get({id: $stateParams.id})
     this.people = PeopleFactory.query({activity_id: $stateParams.id})
+    this.messages = MessageFactory.query({activity_id: $stateParams.id})
  }
 
   function ActivityEditControllerFunction( ActivityFactory, $stateParams , $state){
