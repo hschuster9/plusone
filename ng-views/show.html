@@ -9,12 +9,14 @@
   <p>{{vm.activity.price}}</p>
 
 <h2>PEOPLE!!!!</h2>
-<div data-ng-repeat="person in vm.people">
-  <p><a data-ui-sref="personEdit({activity_id: person.activity_id, id: person.id})">{{person.name}}</a></p>
+<div class="personList">
+  <div data-ng-repeat="person in vm.people">
+    <p><a data-ui-sref="personEdit({activity_id: person.activity_id, id: person.id})">{{person.name}}</a></p>
+  </div>
 </div>
 
 <h2>MESSAGES!!!!</h2>
-<div data-ng-repeat="message in vm.messages">
+<div class="messageBox" data-ng-repeat="message in vm.messages">
   <p>{{message.author}}</p>
   <p>{{message.content}}</p>
 </div>
