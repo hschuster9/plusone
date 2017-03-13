@@ -1,0 +1,7 @@
+<h1>What's Up. Let's Edit {{vm.person.name}}</h1>
+
+<form>
+  <input placeholder="Name" data-ng-model="vm.person.name" />
+  <button type="button" data-ng-click="vm.update()">Update</button>
+  <button type="button" data-ng-click="vm.destroy()">Delete</button>
+</form>
