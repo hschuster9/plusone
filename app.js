@@ -115,7 +115,6 @@ angular
         });
     };
 }
-  }
 function PersonEditControllerFunction( PeopleFactory, $stateParams, $state) {
   this.person = PeopleFactory.get( {activity_id: $stateParams.activity_id, id: $stateParams.id})
   this.update = function(){
