@@ -105,7 +105,7 @@ angular
       .state("messageNew", {
         url: "/activities/:activity_id/messages/new",
         templateUrl: "ng-views/message_new.html",
-        contoller: "MessageNewController",
+        controller: "MessageNewController",
         controllerAs: "vm"
       })
   }
