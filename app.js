@@ -13,10 +13,15 @@ angular
     "$resource",
     ActivityFactoryFunction
   ])
-  .factory('PeopleFactory', function($resource){
+  .factory("PeopleFactory", function($resource){
     return $resource ("http://localhost:3000/activities/:activity_id/people/:id", {}, {
         update: {method: "PUT"},
       });
+  })
+  .factory("MessageFactory", function($resource){
+    return $resource ("http://localhost:3000/activities/:activity_id/messages/:id", {}, {
+      update: {method: "PUT"},
+    });
   })
   .controller("ActivityIndexController", [
     "ActivityFactory",
@@ -30,6 +35,7 @@ angular
   .controller("ActivityShowController", [
     "ActivityFactory",
     "PeopleFactory",
+    "MessageFactory",
     "$stateParams",
     ActivityShowControllerFunction
   ])
@@ -50,6 +56,12 @@ angular
     "$stateParams",
     "$state",
     PersonEditControllerFunction
+  ])
+  .controller("MessageNewController", [
+    "MessageFactory",
+    "$stateParams",
+    "$state",
+    MessageNewControllerFunction
   ])
 
   function RouterFunction($stateProvider){
@@ -90,6 +102,12 @@ angular
         controller: "PersonEditController",
         controllerAs: "vm"
       })
+      .state("messageNew", {
+        url: "/activities/:activity_id/messages/new",
+        templateUrl: "ng-views/message_new.html",
+        controller: "MessageNewController",
+        controllerAs: "vm"
+      })
   }
 
   function ActivityFactoryFunction($resource){
@@ -111,9 +129,10 @@ angular
     };
   }
 
-  function ActivityShowControllerFunction(ActivityFactory, PeopleFactory, $stateParams){
+  function ActivityShowControllerFunction(ActivityFactory, PeopleFactory, MessageFactory, $stateParams){
     this.activity = ActivityFactory.get({id: $stateParams.id})
     this.people = PeopleFactory.query({activity_id: $stateParams.id})
+    this.messages = MessageFactory.query({activity_id: $stateParams.id})
  }
 
   function ActivityEditControllerFunction( ActivityFactory, $stateParams , $state){
@@ -122,12 +141,12 @@ angular
       this.activity.$update({id: $stateParams.id},
         function(activity) {
         $state.go("activityShow", {id: activity.id});
-      })
+      });
     }
     this.destroy = function(){
       this.activity.$delete({id: $stateParams.id}, function(activity){
         $state.go("activityIndex")
-      })
+      });
     }
   }
 
@@ -148,11 +167,22 @@ function PersonEditControllerFunction( PeopleFactory, $stateParams, $state) {
     this.person.$update({activity_id: $stateParams.activity_id, id: $stateParams.id},
       function(person) {
       $state.go("activityShow", {id: person.activity_id})
-    })
+    });
   }
   this.destroy = function(){
     this.person.$delete({activity_id: $stateParams.activity_id, id: $stateParams.id}, function(person){
       $state.go("activityShow", {id: $stateParams.activity_id})
-    })
+    });
+  }
+}
+
+function MessageNewControllerFunction(MessageFactory, $stateParams, $state) {
+  this.message =  new MessageFactory()
+  this.create = function(){
+    this.message.activity_id = $stateParams.activity_id
+    this.message.$save({activity_id: $stateParams.activity_id},
+    function(activity) {
+      $state.go("activityShow", {id: $stateParams.activity_id})
+    });
   }
 }
