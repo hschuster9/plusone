@@ -1,6 +1,9 @@
 <h1>Hey there! This is our index!</h1>
-  <p><a data-ui-sref="activityNew">NEW ACTIVITY LINK</a></p>
 
-<div data-ng-repeat="activity in vm.activities">
+<input placeholder="Search" type="text" ng-model="vm.search">
+
+<p><a data-ui-sref="activityNew">NEW ACTIVITY LINK</a></p>
+
+<div data-ng-repeat="activity in vm.activities | filter: vm.search">
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.name}}</a></p>
 </div>
