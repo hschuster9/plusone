@@ -7,11 +7,11 @@
   <br>
   <p><input placeholder="Date" data-ng-model="vm.activity.date" /></p>
   <br>
-  <p><input placeholder="Blurb" data-ng-model="vm.activity.blurb" /></p>
+  <textarea value="vm.activity.blurb" data-ng-model="vm.activity.blurb"></textarea></p>
   <br>
   <p><input placeholder="Time" data-ng-model="vm.activity.time" /></p>
   <br>
   <p><input placeholder="Price" data-ng-model="vm.activity.price" /></p>
   <br>
-  <p><button data-ng-click='vm.create()'> Create Entry </button></p>
+  <p><button data-ng-click="vm.create()"> Create Entry </button></p>
 </form>
