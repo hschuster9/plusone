@@ -35,6 +35,7 @@ angular
   .controller("ActivityShowController", [
     "ActivityFactory",
     "PeopleFactory",
+    "MessageFactory",
     "$stateParams",
     ActivityShowControllerFunction
   ])
@@ -55,6 +56,12 @@ angular
     "$stateParams",
     "$state",
     PersonEditControllerFunction
+  ])
+  .controller("MessageNewController", [
+    "MessageFactory",
+    "$stateParams",
+    "$state",
+    MessageNewControllerFunction
   ])
   .controller("MessageEditController", [
     "MessageFactory",
@@ -101,6 +108,12 @@ angular
         controller: "PersonEditController",
         controllerAs: "vm"
       })
+      .state("messageNew", {
+        url: "/activities/:activity_id/messages/new",
+        templateUrl: "ng-views/message_new.html",
+        controller: "MessageNewController",
+        controllerAs: "vm"
+      })
       .state("messageEdit", {
         url: "/activities/:activity_id/messages/:id/edit",
         templateUrl: "ng-views/message_edit.html",
@@ -110,7 +123,7 @@ angular
   }
 
   function ActivityFactoryFunction($resource){
-    return  $resource("http://localhost:3000/activities/:id ", {}, {
+    return  $resource("http://localhost:3000/activities/:id", {}, {
         update: {method: "PUT"},
       });
   }
@@ -128,9 +141,10 @@ angular
     };
   }
 
-  function ActivityShowControllerFunction(ActivityFactory, PeopleFactory, $stateParams){
+  function ActivityShowControllerFunction(ActivityFactory, PeopleFactory, MessageFactory, $stateParams){
     this.activity = ActivityFactory.get({id: $stateParams.id})
     this.people = PeopleFactory.query({activity_id: $stateParams.id})
+    this.messages = MessageFactory.query({activity_id: $stateParams.id})
  }
 
   function ActivityEditControllerFunction( ActivityFactory, $stateParams , $state){
@@ -169,6 +183,17 @@ function PersonEditControllerFunction( PeopleFactory, $stateParams, $state) {
   }
   this.destroy = function(){
     this.person.$delete({activity_id: $stateParams.activity_id, id: $stateParams.id}, function(person){
+      $state.go("activityShow", {id: $stateParams.activity_id})
+    })
+  }
+}
+
+function MessageNewControllerFunction( MessageFactory, $stateParams, $state) {
+  this.message =  new MessageFactory()
+  this.create = function(){
+    this.message.activity_id = $stateParams.activity_id
+    this.message.$save({activity_id: $stateParams.activity_id},
+    function(activity) {
       $state.go("activityShow", {id: $stateParams.activity_id})
     })
   }
