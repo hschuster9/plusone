@@ -18,17 +18,10 @@ angular
         update: {method: "PUT"},
       });
   })
-<<<<<<< HEAD
-  .factory('MessageFactory', function($resource){
-    return $resource ("http://localhost:3000/activities/:activity_id/messages/:id", {}, {
-        update: {method: "PUT"},
-      });
-=======
   .factory("MessageFactory", function($resource){
     return $resource ("http://localhost:3000/activities/:activity_id/messages/:id", {}, {
       update: {method: "PUT"},
     });
->>>>>>> master
   })
   .controller("ActivityIndexController", [
     "ActivityFactory",
@@ -70,8 +63,6 @@ angular
     "$state",
     MessageNewControllerFunction
   ])
-<<<<<<< HEAD
-=======
   .controller("MessageEditController", [
     "MessageFactory",
     "$stateParams",
@@ -79,7 +70,6 @@ angular
     MessageEditControllerFunction
   ])
 
->>>>>>> master
 
   function RouterFunction($stateProvider){
     $stateProvider
@@ -125,15 +115,12 @@ angular
         controller: "MessageNewController",
         controllerAs: "vm"
       })
-<<<<<<< HEAD
-=======
       .state("messageEdit", {
         url: "/activities/:activity_id/messages/:id/edit",
         templateUrl: "ng-views/message_edit.html",
         controller: "MessageEditController",
         controllerAs: "vm"
       })
->>>>>>> master
   }
 
   function ActivityFactoryFunction($resource){
@@ -238,15 +225,4 @@ function MessageEditControllerFunction( MessageFactory, $stateParams, $state){
       $state.go("activityShow", {id: $stateParams.activity_id})
     })
   }
-}
-
-function MessageNewControllerFunction( MessageFactory, $stateParams, $state) {
-  this.message = new MessageFactory()
-  this.create = function(){
-    this.message.activity_id = $stateParams.activity_id
-    this.message.$save({activity_id: $stateParams.activity_id},
-      function(activity) {
-      $state.go("activityShow", {id: $stateParams.activity_id})
-    });
-  };
 }
