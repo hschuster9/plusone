@@ -1,32 +1,30 @@
 <h2> Show page </h2>
 
 <div>
-  <p>{{vm.activity.name}}</p>
-  <p>{{vm.activity.date}}</p>
-  <p>{{vm.activity.location}}</p>
-  <p>{{vm.activity.blurb}}</p>
-  <p>{{vm.activity.time}}</p>
-  <p>{{vm.activity.price}}</p>
+  <p>Name: {{vm.activity.name}}</p>
+  <p>Date: {{vm.activity.date}}</p>
+  <p>Location: {{vm.activity.location}}</p>
+  <p>Blurb: {{vm.activity.blurb}}</p>
+  <p>Time: {{vm.activity.time}}</p>
+  <p>Price: ${{vm.activity.price}}</p>
+</div>
 
 <a data-ui-sref="activityEdit({id: vm.activity.id})">Edit Activity</a>
 
 <h2>PEOPLE!!!!</h2>
+<p><a data-ui-sref="personNew({activity_id: vm.activity.id})">New Person</a></p>
 
 <div class="personList">
   <div data-ng-repeat="person in vm.people">
     <p><a data-ui-sref="personEdit({activity_id: person.activity_id, id: person.id})">{{person.name}}</a></p>
   </div>
 </div>
-  <a data-ui-sref="activityEdit({id: vm.activity.id})">Edit Activity</a>
-</div>
-
-<p><a data-ui-sref="personNew({activity_id: vm.activity.id})">New Person</a></p>
 
 <h2>MESSAGES</h2>
+<p><a data-ui-sref="messageNew({activity_id: vm.activity.id})">New Message</a></p>
+
 <div class="messageBox" data-ng-repeat="message in vm.messages">
-  <p><a data-ui-sref="messageEdit({activity_id: message.activity_id, id: message.id})">Edit Message</a></p>
   <p>{{message.author}}</p>
   <p>{{message.content}}</p>
+  <p><a data-ui-sref="messageEdit({activity_id: message.activity_id, id: message.id})">Edit Message</a></p>
 </div>
-
-<p><a data-ui-sref="messageNew({activity_id: vm.activity.id})">New Message</a></p>
