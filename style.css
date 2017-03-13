@@ -15,7 +15,7 @@ header {
 
 main {
   padding-top: 120px;
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 158px);
   width: calc(100vw - 8px);
   background-color: white;
   padding-left: 10px;
