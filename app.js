@@ -57,7 +57,12 @@ angular
     "$state",
     PersonEditControllerFunction
   ])
-
+  .controller("MessageNewController", [
+    "MessageFactory",
+    "$stateParams",
+    "$state",
+    MessageNewControllerFunction
+  ])
 
   function RouterFunction($stateProvider){
     $stateProvider
@@ -95,6 +100,12 @@ angular
         url: "/activities/:activity_id/people/:id/edit",
         templateUrl: "ng-views/person_edit.html",
         controller: "PersonEditController",
+        controllerAs: "vm"
+      })
+      .state("messageNew", {
+        url: "/activities/:activity_id/messages/new",
+        templateUrl: "ng-views/message_new.html",
+        controller: "MessageNewController",
         controllerAs: "vm"
       })
   }
@@ -163,4 +174,15 @@ function PersonEditControllerFunction( PeopleFactory, $stateParams, $state) {
       $state.go("activityShow", {id: $stateParams.activity_id})
     })
   }
+}
+
+function MessageNewControllerFunction( MessageFactory, $stateParams, $state) {
+  this.message = new MessageFactory()
+  this.create = function(){
+    this.message.activity_id = $stateParams.activity_id
+    this.message.$save({activity_id: $stateParams.activity_id},
+      function(activity) {
+      $state.go("activityShow", {id: $stateParams.activity_id})
+    });
+  };
 }
