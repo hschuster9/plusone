@@ -10,8 +10,8 @@ angular
     RouterFunction
   ])
   .factory("ActivityFactory", [
-  "$resource",
-  ActivityFactoryFunction
+    "$resource",
+    ActivityFactoryFunction
   ])
   .factory('PeopleFactory', function($resource){
     return $resource ("http://localhost:3000/activities/:activity_id/people/:id", {}, {
@@ -19,8 +19,8 @@ angular
       });
   })
   .controller("ActivityIndexController", [
-  "ActivityFactory",
-  ActivityIndexControllerFunction
+    "ActivityFactory",
+    ActivityIndexControllerFunction
   ])
   .controller("ActivityNewController", [
     "ActivityFactory",
@@ -28,16 +28,22 @@ angular
     ActivityNewControllerFunction
   ])
   .controller("ActivityShowController", [
-  "ActivityFactory",
-  "PeopleFactory",
-  "$stateParams",
-  ActivityShowControllerFunction
+    "ActivityFactory",
+    "PeopleFactory",
+    "$stateParams",
+    ActivityShowControllerFunction
   ])
   .controller("ActivityEditController", [
     "ActivityFactory",
     "$stateParams",
     "$state",
     ActivityEditControllerFunction
+  ])
+  .controller("PersonNewController", [
+    "PeopleFactory",
+    "$stateParams",
+    "$state",
+    PersonNewControllerFunction
   ])
   .controller("PersonEditController", [
     "PeopleFactory",
@@ -70,6 +76,12 @@ angular
         url: "/activities/:id/edit",
         templateUrl: "ng-views/edit.html",
         controller: "ActivityEditController",
+        controllerAs: "vm"
+      })
+      .state("personNew", {
+        url: "/activities/:activity_id/people/new",
+        templateUrl: "ng-views/person_new.html",
+        controller: "PersonNewController",
         controllerAs: "vm"
       })
       .state("personEdit", {
@@ -119,9 +131,18 @@ angular
     }
   }
 
+function PersonNewControllerFunction(PeopleFactory, $stateParams, $state) {
+  this.person = new PeopleFactory()
+  this.create = function(){
+    this.person.activity_id = $stateParams.activity_id
+    this.person.$save(function(activity) {
+      $state.go("activityShow", {id: $stateParams.activity_id})
+    });
+  };
+}
+
 function PersonEditControllerFunction( PeopleFactory, $stateParams, $state) {
   this.person = PeopleFactory.get({activity_id: $stateParams.activity_id, id: $stateParams.id})
-
   this.update = function(){
     this.person.$update({activity_id: $stateParams.activity_id, id: $stateParams.id},
       function(person) {
