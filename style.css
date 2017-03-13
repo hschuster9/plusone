@@ -22,3 +22,12 @@ main {
   margin-left: -10px;
   margin-bottom: 20px;
 }
+
+.messageBox {
+  border: 1px solid black;
+}
+
+.personList {
+  border: 1px solid black;
+  width: 600px;
+}

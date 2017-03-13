@@ -12,14 +12,19 @@
 
 <h2>PEOPLE!!!!</h2>
 
-<div data-ng-repeat="person in vm.people">
-  <p><a data-ui-sref="personEdit({activity_id: person.activity_id, id: person.id})">{{person.name}}</a></p>
+<div class="personList">
+  <div data-ng-repeat="person in vm.people">
+    <p><a data-ui-sref="personEdit({activity_id: person.activity_id, id: person.id})">{{person.name}}</a></p>
+  </div>
 </div>
+  <a data-ui-sref="activityEdit({id: vm.activity.id})">Edit Activity</a>
+</div>
+
 <p><a data-ui-sref="personNew({activity_id: vm.activity.id})">New Person</a></p>
 
-<h2>MESSAGES!!!!</h2>
-
-<div data-ng-repeat="message in vm.messages">
+<h2>MESSAGES</h2>
+<div class="messageBox" data-ng-repeat="message in vm.messages">
+  <p><a data-ui-sref="messageEdit({activity_id: message.activity_id, id: message.id})">Edit Message</a></p>
   <p>{{message.author}}</p>
   <p>{{message.content}}</p>
 </div>
