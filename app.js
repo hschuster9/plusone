@@ -135,7 +135,8 @@ function PersonNewControllerFunction(PeopleFactory, $stateParams, $state) {
   this.person = new PeopleFactory()
   this.create = function(){
     this.person.activity_id = $stateParams.activity_id
-    this.person.$save(function(activity) {
+    this.person.$save({activity_id: $stateParams.activity_id},
+      function(activity) {
       $state.go("activityShow", {id: $stateParams.activity_id})
     });
   };
