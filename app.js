@@ -9,29 +9,29 @@ angular
     "$stateProvider",
     RouterFunction
   ])
-  .factory( "ActivityFactory", [
-  "$resource",
-  ActivityFactoryFunction
+  .factory("ActivityFactory", [
+    "$resource",
+    ActivityFactoryFunction
   ])
   .factory("PeopleFactory", function( $resource){
     return $resource ("http://localhost:3000/activities/:activity_id/people/:id", {}, {
         update: {method: "PUT"},
       });
   })
-  .controller( "ActivityIndexController", [
-  "ActivityFactory",
-  ActivityIndexControllerFunction
+  .controller("ActivityIndexController", [
+    "ActivityFactory",
+    ActivityIndexControllerFunction
   ])
   .controller( "ActivityNewController", [
     "ActivityFactory",
     "$state",
     ActivityNewControllerFunction
   ])
-  .controller( "ActivityShowController", [
-  "ActivityFactory",
-  "PeopleFactory",
-  "$stateParams",
-  ActivityShowControllerFunction
+  .controller("ActivityShowController", [
+    "ActivityFactory",
+    "PeopleFactory",
+    "$stateParams",
+    ActivityShowControllerFunction
   ])
   .controller( "ActivityEditController", [
     "ActivityFactory",
@@ -39,7 +39,13 @@ angular
     "$state",
     ActivityEditControllerFunction
   ])
-  .controller( "PersonEditController", [
+  .controller("PersonNewController", [
+    "PeopleFactory",
+    "$stateParams",
+    "$state",
+    PersonNewControllerFunction
+  ])
+  .controller("PersonEditController", [
     "PeopleFactory",
     "$stateParams",
     "$state",
@@ -72,7 +78,13 @@ angular
         controller: "ActivityEditController",
         controllerAs: "vm"
       })
-      .state( "personEdit", {
+      .state("personNew", {
+        url: "/activities/:activity_id/people/new",
+        templateUrl: "ng-views/person_new.html",
+        controller: "PersonNewController",
+        controllerAs: "vm"
+      })
+      .state("personEdit", {
         url: "/activities/:activity_id/people/:id/edit",
         templateUrl: "ng-views/person_edit.html",
         controller: "PersonEditController",
@@ -116,8 +128,18 @@ angular
     };
 }
   }
+function PersonNewControllerFunction(PeopleFactory, $stateParams, $state) {
+  this.person = new PeopleFactory()
+  this.create = function(){
+    this.person.activity_id = $stateParams.activity_id
+    this.person.$save(function(activity) {
+      $state.go("activityShow", {id: $stateParams.activity_id})
+    });
+  };
+}
+
 function PersonEditControllerFunction( PeopleFactory, $stateParams, $state) {
-  this.person = PeopleFactory.get( {activity_id: $stateParams.activity_id, id: $stateParams.id})
+  this.person = PeopleFactory.get({activity_id: $stateParams.activity_id, id: $stateParams.id})
   this.update = function(){
     this.person.$update( {activity_id: $stateParams.activity_id, id: $stateParams.id},
       function( person) {
