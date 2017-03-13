@@ -9,31 +9,32 @@ angular
     "$stateProvider",
     RouterFunction
   ])
-  .factory("ActivityFactory", [
+  .factory( "ActivityFactory", [
   "$resource",
   ActivityFactoryFunction
   ])
-  .controller("ActivityIndexController", [
+  .controller( "ActivityIndexController", [
   "ActivityFactory",
   ActivityIndexControllerFunction
   ])
-  .controller("ActivityNewController", [
+  .controller( "ActivityNewController", [
     "ActivityFactory",
+    "$state",
     ActivityNewControllerFunction
   ])
-  .controller("ActivityShowControler", [
+  .controller( "ActivityShowController", [
   "ActivityFactory",
   "$stateParams",
   ActivityShowControllerFunction
   ])
-  .controller("ActivityEditController", [
+  .controller( "ActivityEditController", [
     "ActivityFactory",
     "$stateParams",
     "$state",
     ActivityEditControllerFunction
   ]);
 
-  function RouterFunction($stateProvider){
+  function RouterFunction( $stateProvider){
     $stateProvider
       .state("activityIndex", {
         url: "",
@@ -41,45 +42,46 @@ angular
         controller: "ActivityIndexController",
         controllerAs: "vm"
       })
-      .state("activityNew", {
+      .state( "activityNew", {
         url: "/activities/new",
         templateUrl: "ng-views/new.html",
         controller: "ActivityNewController",
         controllerAs: "vm"
       })
-      .state("activityShow", {
+      .state( "activityShow", {
         url: "/activities/:id",
         templateUrl: "ng-views/show.html",
-        controller: "ActivityShowControler",
+        controller: "ActivityShowController",
         controllerAs: "vm"
       })
-      .state("activityEdit", {
+      .state( "activityEdit", {
         url: "/activities/:id/edit",
         templateUrl: "ng-views/edit.html",
         controller: "ActivityEditController",
+        controllerAs: "vm"
       });
   }
 
-  function ActivityFactoryFunction($resource){
-    return  $resource("http://localhost:3000/activities/:id ", {}, {
-        update: {method: "PUT"}
+  function ActivityFactoryFunction( $resource){
+    return  $resource( "http://localhost:3000/activities/:id ", {}, {
+        update: { method: "PUT" }
       });
   }
 
-  function ActivityIndexControllerFunction(ActivityFactory, $state){
+  function ActivityIndexControllerFunction( ActivityFactory, $state){
     this.activities = ActivityFactory.query();
   }
 
-  function ActivityNewControllerFunction(ActivityFactory, $state){
+  function ActivityNewControllerFunction( ActivityFactory, $state){
     this.activity = new ActivityFactory();
     this.create = function(){
-      this.activity.$save(function(activity) {
-        $state.go("activityIndex"); 
+      this.activity.$save( function(activity) {
+        $state.go("activityIndex");
       });
     };
   }
 
-  function ActivityShowControllerFunction(ActivityFactory, $stateParams){
+  function ActivityShowControllerFunction( ActivityFactory, $stateParams){
     this.activity = ActivityFactory.get({id: $stateParams.id});
  }
 
@@ -90,5 +92,11 @@ angular
         function(activity) {
         $state.go("activityShow", {id: activity.id});
       });
+  };
+    this.destroy = function(){
+      this.activity.$delete({id: $stateParams.id},
+        function(activity){
+          $state.go("activityIndex");
+        });
     };
-  }
+}
