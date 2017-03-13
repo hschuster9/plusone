@@ -17,3 +17,9 @@
 </div>
 
 <p><a data-ui-sref="personNew({activity_id: vm.activity.id})">New Person</a></p>
+
+<h2>MESSAGES</h2>
+<div data-ng-repeat="message in vm.messages">
+  <p><a data-ui-sref="messageEdit({activity_id: message.activity_id, id: message.id})">{{message.content}}</a></p>
+
+</div>

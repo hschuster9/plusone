@@ -18,6 +18,11 @@ angular
         update: {method: "PUT"},
       });
   })
+  .factory('MessageFactory', function($resource){
+    return $resource("http://localhost:3000/activities/:activity_id/messages/:id", {}, {
+      update: {method: "PUT"},
+    });
+  })
   .controller("ActivityIndexController", [
     "ActivityFactory",
     ActivityIndexControllerFunction
@@ -50,6 +55,12 @@ angular
     "$stateParams",
     "$state",
     PersonEditControllerFunction
+  ])
+  .controller("MessageEditController", [
+    "MessageFactory",
+    "$stateParams",
+    "$state",
+    MessageEditControllerFunction
   ])
 
   function RouterFunction($stateProvider){
@@ -88,6 +99,12 @@ angular
         url: "/activities/:activity_id/people/:id/edit",
         templateUrl: "ng-views/person_edit.html",
         controller: "PersonEditController",
+        controllerAs: "vm"
+      })
+      .state("messageEdit", {
+        url: "/activities/:activity_id/messages/:id/edit",
+        templateUrl: "ng-views/message_edit.html",
+        controller: "MessageEditController",
         controllerAs: "vm"
       })
   }
@@ -152,6 +169,22 @@ function PersonEditControllerFunction( PeopleFactory, $stateParams, $state) {
   }
   this.destroy = function(){
     this.person.$delete({activity_id: $stateParams.activity_id, id: $stateParams.id}, function(person){
+      $state.go("activityShow", {id: $stateParams.activity_id})
+    })
+  }
+}
+
+function MessageEditControllerFunction( MessageFactory, $stateParams, $state){
+  this.message = MessageFactory.get({activity_id: $stateParams.activity_id, id: $stateParams.id})
+  this.update = function(){
+    this.message.$update({activity_id: $stateParams.activity_id, id: $stateParams.id},
+      function(message){
+        $state.go("activityShow", {id: message.activity_id})
+      })
+  }
+  this.destroy = function(){
+    this.message.$delete({activity_id: $stateParams.activity_id, id: $stateParams.id},
+    function(message){
       $state.go("activityShow", {id: $stateParams.activity_id})
     })
   }
