@@ -22,7 +22,7 @@ angular
     "$state",
     ActivityNewControllerFunction
   ])
-  .controller( "ActivityShowController", [
+  .controller("ActivityShowController", [
   "ActivityFactory",
   "$stateParams",
   ActivityShowControllerFunction
@@ -62,9 +62,9 @@ angular
       });
   }
 
-  function ActivityFactoryFunction( $resource){
-    return  $resource( "http://localhost:3000/activities/:id ", {}, {
-        update: { method: "PUT" }
+  function ActivityFactoryFunction($resource){
+    return  $resource("http://localhost:3000/activities/:id ", {}, {
+        update: {method: "PUT"}
       });
   }
 
@@ -86,7 +86,7 @@ angular
  }
 
   function ActivityEditControllerFunction( ActivityFactory, $stateParams , $state){
-    this.activity = ActivityFactory.get({id: $stateParams.id});
+    this.activity = ActivityFactory.get({id: $stateParams.id})
     this.update = function(){
       this.activity.$update({id: $stateParams.id},
         function(activity) {
@@ -100,3 +100,11 @@ angular
         });
     };
 }
+      })
+    }
+    this.destroy = function(){
+      this.activity.$delete({id: $stateParams.id}, function(activity){
+        $state.go("activityIndex")
+      })
+    }
+  }
