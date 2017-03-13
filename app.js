@@ -13,6 +13,11 @@ angular
   "$resource",
   ActivityFactoryFunction
   ])
+  .factory('PeopleFactory', function($resource){
+    return $resource ("http://localhost:3000/activities/:activity_id/people/:id", {}, {
+        update: {method: "PUT"},
+      });
+  })
   .controller("ActivityIndexController", [
   "ActivityFactory",
   ActivityIndexControllerFunction
@@ -24,6 +29,7 @@ angular
   ])
   .controller("ActivityShowController", [
   "ActivityFactory",
+  "PeopleFactory",
   "$stateParams",
   ActivityShowControllerFunction
   ])
@@ -32,6 +38,12 @@ angular
     "$stateParams",
     "$state",
     ActivityEditControllerFunction
+  ])
+  .controller("PersonEditController", [
+    "PeopleFactory",
+    "$stateParams",
+    "$state",
+    PersonEditControllerFunction
   ])
 
   function RouterFunction($stateProvider){
@@ -59,7 +71,13 @@ angular
         templateUrl: "ng-views/edit.html",
         controller: "ActivityEditController",
         controllerAs: "vm"
-      });
+      })
+      .state("personEdit", {
+        url: "/activities/:activity_id/people/:id/edit",
+        templateUrl: "ng-views/person_edit.html",
+        controller: "PersonEditController",
+        controllerAs: "vm"
+      })
   }
 
   function ActivityFactoryFunction($resource){
@@ -81,8 +99,9 @@ angular
     };
   }
 
-  function ActivityShowControllerFunction(ActivityFactory, $stateParams){
+  function ActivityShowControllerFunction(ActivityFactory, PeopleFactory, $stateParams){
     this.activity = ActivityFactory.get({id: $stateParams.id})
+    this.people = PeopleFactory.query({activity_id: $stateParams.id})
  }
 
   function ActivityEditControllerFunction( ActivityFactory, $stateParams , $state){
@@ -99,3 +118,19 @@ angular
       })
     }
   }
+
+function PersonEditControllerFunction( PeopleFactory, $stateParams, $state) {
+  this.person = PeopleFactory.get({activity_id: $stateParams.activity_id, id: $stateParams.id})
+
+  this.update = function(){
+    this.person.$update({activity_id: $stateParams.activity_id, id: $stateParams.id},
+      function(person) {
+      $state.go("activityShow", {id: person.activity_id})
+    })
+  }
+  this.destroy = function(){
+    this.person.$delete({activity_id: $stateParams.activity_id, id: $stateParams.id}, function(person){
+      $state.go("activityShow", {id: $stateParams.activity_id})
+    })
+  }
+}
