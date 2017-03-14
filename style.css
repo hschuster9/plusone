@@ -31,3 +31,53 @@ main {
   border: 1px solid black;
   width: 600px;
 }
+
+.form {
+  max-width: 500px;
+  padding: 20px 12px 10px 20px;
+}
+
+.form label{
+  display: block;
+  margin: 0px 0px 15px 0px;
+}
+
+.form label > span{
+  width: 100px;
+  font-weight: bold;
+  float: left;
+  padding-top: 8px;
+  padding-right: 5px;
+}
+.fieldBox {
+  height: 20px;
+  width: 150px;
+  box-shadow: 1px 1px 4px #EBEBEB;
+  border-radius: 3px;
+}
+
+#blurbArea {
+  height:100px;
+  width: 55%;
+}
+
+.updateButton {
+  border: none;
+  padding: 8px 15px 8px 15px;
+  background: #4286f4;
+  color: white;
+  box-shadow: 1px 1px 4px #DADADA;
+  border-radius: 3px;
+}
+
+.deleteButton {
+  border: none;
+  background: red;
+  padding: 8px 15px 8px 15px;
+  color: white;
+  box-shadow: 1px 1px 4px #DADADA;
+  border-radius: 3px;
+}
+.buttons {
+  margin-left: 50%;
+}
