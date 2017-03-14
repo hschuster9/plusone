@@ -1,12 +1,21 @@
 <h2>Edit Activity</h2>
 
+<div class="form">
 <form>
-  <input placeholder="Name" data-ng-model="vm.activity.name" />
-  <input placeholder="Location" data-ng-model="vm.activity.location"/>
-  <input placeholder="Date" data-ng-model="vm.activity.date" />
-  <input placeholder="Time" data-ng-model="vm.activity.time" />
-  <input placeholder="Price (optional)" data-ng-model="vm.activity.price" />
-  <textarea value="vm.activity.blurb" data-ng-model="vm.activity.blurb"></textarea>
-  <button type="button" data-ng-click="vm.update()">Update</button>
-  <button type="button" data-ng-click="vm.destroy()">Delete</button>
+  <label> <span>Name:</span> <input class="fieldBox" placeholder="Name" data-ng-model="vm.activity.name" /></label>
+
+  <label> <span>Location:</span> <input class="fieldBox" placeholder="Location" data-ng-model="vm.activity.location"/></label>
+
+  <label> <span>Date:</span> <input class="fieldBox" placeholder="Date" data-ng-model="vm.activity.date" /></label>
+
+  <label> <span>Time: </span> <input class="fieldBox" placeholder="Time" data-ng-model="vm.activity.time" /></label>
+
+  <label> <span> Price:</span> <input class="fieldBox" placeholder="Price (optional)" data-ng-model="vm.activity.price" /></label>
+
+  <label> <span> Blurb:</span> <textarea id="blurbArea" value="vm.activity.blurb" data-ng-model="vm.activity.blurb"></textarea></label>
+  <div class="buttons">
+    <button type="button" class="updateButton"  data-ng-click="vm.update()">Update</button>
+    <button type="button" class="deleteButton" data-ng-click="vm.destroy()">Delete</button>
+  </div>
 </form>
+</div>
