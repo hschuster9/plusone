@@ -1,12 +1,13 @@
-<h2> Show page </h2>
+<h2>{{vm.activity.category}}</h2>
 
 <div>
-  <p>Name: {{vm.activity.name}}</p>
-  <p>Date: {{vm.activity.date}}</p>
-  <p>Location: {{vm.activity.location}}</p>
-  <p>Blurb: {{vm.activity.blurb}}</p>
-  <p>Time: {{vm.activity.time}}</p>
-  <p>Price: ${{vm.activity.price}}</p>
+
+  <p>{{vm.activity.event_name}}</p>
+  <p>{{vm.activity.date}}</p>
+  <p>{{vm.activity.location}}</p>
+  <p>{{vm.activity.blurb}}</p>
+  <p>{{vm.activity.time}}</p>
+  <p>{{vm.activity.price}}</p>
 </div>
 
 <a data-ui-sref="activityEdit({id: vm.activity.id})">Edit Activity</a>
