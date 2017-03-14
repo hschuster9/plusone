@@ -13,13 +13,13 @@ angular
     "$resource",
     ActivityFactoryFunction
   ])
-  .factory('PeopleFactory', function($resource){
+  .factory("PeopleFactory", function($resource){
     return $resource ("http://localhost:3000/activities/:activity_id/people/:id", {}, {
         update: {method: "PUT"},
       });
   })
-  .factory('MessageFactory', function($resource){
-    return $resource("http://localhost:3000/activities/:activity_id/messages/:id", {}, {
+  .factory("MessageFactory", function($resource){
+    return $resource ("http://localhost:3000/activities/:activity_id/messages/:id", {}, {
       update: {method: "PUT"},
     });
   })
@@ -69,6 +69,7 @@ angular
     "$state",
     MessageEditControllerFunction
   ])
+
 
   function RouterFunction($stateProvider){
     $stateProvider
@@ -153,12 +154,12 @@ angular
       this.activity.$update({id: $stateParams.id},
         function(activity) {
         $state.go("activityShow", {id: activity.id});
-      })
+      });
     }
     this.destroy = function(){
       this.activity.$delete({id: $stateParams.id}, function(activity){
         $state.go("activityIndex")
-      })
+      });
     }
   }
 
@@ -179,12 +180,23 @@ function PersonEditControllerFunction( PeopleFactory, $stateParams, $state) {
     this.person.$update({activity_id: $stateParams.activity_id, id: $stateParams.id},
       function(person) {
       $state.go("activityShow", {id: person.activity_id})
-    })
+    });
   }
   this.destroy = function(){
     this.person.$delete({activity_id: $stateParams.activity_id, id: $stateParams.id}, function(person){
       $state.go("activityShow", {id: $stateParams.activity_id})
-    })
+    });
+  }
+}
+
+function MessageNewControllerFunction(MessageFactory, $stateParams, $state) {
+  this.message =  new MessageFactory()
+  this.create = function(){
+    this.message.activity_id = $stateParams.activity_id
+    this.message.$save({activity_id: $stateParams.activity_id},
+    function(activity) {
+      $state.go("activityShow", {id: $stateParams.activity_id})
+    });
   }
 }
 
