@@ -5,5 +5,15 @@
   <p><a data-ui-sref="activityNew">Add a new activity</a></p>
 
 <div data-ng-repeat="activity in vm.activities | filter: vm.search">
-    <p><a ui-sref="activityShow({id: activity.id})">{{activity.category}}</a></p>
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
+    <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <div ng-show="vm.toggleExpand[$index]">
+      <p>{{activity.category}}</p>
+      <p>{{activity.date}}</p>
+      <p>{{activity.location}}</p>
+      <p>{{activity.blurb}}</p>
+      <p>{{activity.time}}</p>
+      <p>{{activity.price}}</p>
+    </div>
+    <hr>
 </div>
