@@ -1,19 +1,21 @@
 <h1>New Activity</h1>
-
+<div class="form">
 <form>
-  <p><input placeholder="Category" data-ng-model="vm.activity.category" /></p>
-  <br>
-  <p><input placeholder="Name" data-ng-model="vm.activity.event_name" /></p>
-  <br>
-  <p><input placeholder="Location" data-ng-model="vm.activity.location" /></p>
-  <br>
-  <p><input placeholder="Date" data-ng-model="vm.activity.date" /></p>
-  <br>
-  <textarea placeholder="Blurb" value="vm.activity.blurb" data-ng-model="vm.activity.blurb"></textarea></p>
-  <br>
-  <p><input placeholder="Time" data-ng-model="vm.activity.time" /></p>
-  <br>
-  <p><input placeholder="Price" data-ng-model="vm.activity.price" /></p>
-  <br>
-  <p><button data-ng-click="vm.create()"> Create Entry </button></p>
+  <label><span> Category:</span><input class="fieldBox"  data-ng-model="vm.activity.category" /></label>
+
+  <label> <span>Event Name:</span><input class="fieldBox" data-ng-model="vm.activity.event_name" /></label>
+
+  <label> <span>Location:</span><input class="fieldBox"  data-ng-model="vm.activity.location" /></label>
+
+  <label> <span>Date:</span><input class="fieldBox"  data-ng-model="vm.activity.date" /></label>
+
+  <label> <span>Time: </span><input class="fieldBox"  data-ng-model="vm.activity.time" /></label>
+  <label><span>Price:</span><input class="fieldBox"  data-ng-model="vm.activity.price" /></label>
+
+  <label> <span> Blurb:</span><textarea id="blurbArea"  value="vm.activity.blurb" data-ng-model="vm.activity.blurb"></textarea></label>
+
+  <div class="buttons">
+    <button class="createButton" id="createActivityButton" data-ng-click="vm.create()"> Create </button></p>
+  </div>
 </form>
+</div>

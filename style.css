@@ -49,6 +49,7 @@ main {
   padding-top: 8px;
   padding-right: 5px;
 }
+
 .fieldBox {
   height: 20px;
   width: 150px;
@@ -56,12 +57,17 @@ main {
   border-radius: 3px;
 }
 
+
 #blurbArea {
-  height:100px;
-  width: 55%;
+  height: 90px;
+  width: 45%;
+  box-shadow: 1px 1px 4px #EBEBEB;
+  border-radius: 3px;
+  border-color: #c4c9d1;
+
 }
 
-.updateButton {
+.updateButton, .createButton {
   border: none;
   padding: 8px 15px 8px 15px;
   background: #4286f4;
@@ -79,5 +85,30 @@ main {
   border-radius: 3px;
 }
 .buttons {
-  margin-left: 50%;
+  margin-left: 40%;
+}
+
+#createNewPersonButton {
+  margin-left: 0%;
+  margin-top: 10%;
+}
+
+#createActivityButton {
+  margin-left: 25%;
+  margin-top: 10%;
+}
+
+#updateMessage {
+  margin-left: 0%;
+  margin-top: 10%;
+}
+
+#updatePerson {
+  margin-left: -25%;
+  margin-top: 10%;
+}
+
+#createMessageButton {
+  margin-left: 20%;
+  margin-top: 10%;
 }
