@@ -1,7 +1,10 @@
-<h1>Let's Make a Person, but in a Work-Appropriate Way!</h1>
+<h1> New Person</h1>
 
-
+<div class="form">
 <form>
-  <input placeholder="Name" data-ng-model="vm.person.name" />
-  <button data-ng-click="vm.create()">Create</button>
+  <label><span> Name:</span></label> <input class="fieldBox" data-ng-model="vm.person.name" /></label>
+<div class="buttons">
+  <button class="createButton" id="createNewPersonButton"data-ng-click="vm.create()">Create</button>
+</div>
 </form>
+</div>
