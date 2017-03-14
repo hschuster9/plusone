@@ -1,6 +1,7 @@
 <h2>{{vm.activity.category}}</h2>
 
 <div>
+
   <p>{{vm.activity.event_name}}</p>
   <p>{{vm.activity.date}}</p>
   <p>{{vm.activity.location}}</p>
@@ -20,9 +21,9 @@
   </div>
 </div>
 
-
 <h2>MESSAGES</h2>
 <p><a data-ui-sref="messageNew({activity_id: vm.activity.id})">New Message</a></p>
+
 <div class="messageBox" data-ng-repeat="message in vm.messages">
   <p>{{message.author}}</p>
   <p>{{message.content}}</p>
