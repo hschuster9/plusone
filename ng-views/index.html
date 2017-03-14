@@ -1,9 +1,12 @@
 <h1>Hey there! This is our index!</h1>
 <input placeholder="Search" type="text" ng-model="vm.search">
   <p><a data-ui-sref="activityNew">Add a new activity</a></p>
+
 <button ng-click="vm.toggleConcerts = !vm.toggleConcerts">Concerts</button>
 <button ng-click="vm.toggleMovies = !vm.toggleMovies">Movies</button>
 <button ng-click="vm.toggleDinner = !vm.toggleDinner">Dinner</button>
+
+
 <div ng-show="vm.toggleConcerts" data-ng-repeat="activity in vm.activities | filter: 'Concerts'">
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
     <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
@@ -17,6 +20,7 @@
     </div>
     <hr>
 </div>
+
 <div ng-show="vm.toggleMovies" data-ng-repeat="activity in vm.activities | filter: 'Movies'">
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
     <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
@@ -30,6 +34,9 @@
     </div>
     <hr>
 </div>
+
+
+
 <div ng-show="vm.toggleDinner" data-ng-repeat="activity in vm.activities | filter: 'Dinner'">
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
     <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>

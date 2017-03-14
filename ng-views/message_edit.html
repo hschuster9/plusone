@@ -3,10 +3,10 @@
 <div class="form">
 <form>
   <label><span>Name:</span> <input class="fieldBox" data-ng-model="vm.message.author" /></label>
-  <label><span>Content:</span> <input class="fieldBox" data-ng-model="vm.message.content" /></label>
+  <label><span>Content:</span> <textarea id="blurbArea" data-ng-model="vm.message.content" /></textarea></label>
 
   <div class="buttons">
-    <button type="button" class="updateButton" data-ng-click="vm.update()">Update</button>
+    <button type="button" class="updateButton" id="updateMessage" data-ng-click="vm.update()">Update</button>
     <button type="button" class="deleteButton" data-ng-click="vm.destroy()">Delete</button>
   </div>
 </form>
