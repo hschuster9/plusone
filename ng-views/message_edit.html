@@ -1,8 +1,13 @@
 <h1> Edit Message </h1>
 
+<div class="form">
 <form>
-  <input placeholder="Author" data-ng-model="vm.message.author" />
-  <input placeholder="Content" data-ng-model="vm.message.content" />
-  <button type="button" data-ng-click="vm.update()">Update</button>
-  <button type="button" data-ng-click="vm.destroy()">Delete</button>
+  <label><span>Name:</span> <input class="fieldBox" data-ng-model="vm.message.author" /></label>
+  <label><span>Content:</span> <input class="fieldBox" data-ng-model="vm.message.content" /></label>
+
+  <div class="buttons">
+    <button type="button" class="updateButton" data-ng-click="vm.update()">Update</button>
+    <button type="button" class="deleteButton" data-ng-click="vm.destroy()">Delete</button>
+  </div>
 </form>
+</div>
