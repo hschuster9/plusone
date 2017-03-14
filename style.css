@@ -1,16 +1,35 @@
 html {
   padding-bottom: 10px;
   background-color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #5b59e8;
 }
 
+a:hover {
+  color: #9896f8
+}
+
+
 header {
-  background-color: green;
+  background-color: #2F0088;
   position: fixed;
   height: 120px;
   width: 100vw;
   top: 0;
   left: 0;
   padding-left: 10px;
+  color: white;
+}
+
+header h1 >a {
+  color: white;
+}
+
+header h1 > a:hover {
+  color: 	#DCDCDC;
 }
 
 main {
@@ -49,6 +68,7 @@ main {
   padding-top: 8px;
   padding-right: 5px;
 }
+
 .fieldBox {
   height: 20px;
   width: 150px;
@@ -56,18 +76,24 @@ main {
   border-radius: 3px;
 }
 
+
 #blurbArea {
-  height:100px;
-  width: 55%;
+  height: 90px;
+  width: 45%;
+  box-shadow: 1px 1px 4px #EBEBEB;
+  border-radius: 3px;
+  border-color: #c4c9d1;
+
 }
 
-.updateButton {
+.updateButton, .createButton {
   border: none;
   padding: 8px 15px 8px 15px;
-  background: #4286f4;
+  /*background: #4286f4;*/
+  background: #2F0088;
   color: white;
   box-shadow: 1px 1px 4px #DADADA;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .deleteButton {
@@ -76,10 +102,35 @@ main {
   padding: 8px 15px 8px 15px;
   color: white;
   box-shadow: 1px 1px 4px #DADADA;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .buttons {
-  margin-left: 50%;
+  margin-left: 40%;
+}
+
+#createNewPersonButton {
+  margin-left: 0%;
+  margin-top: 10%;
+}
+
+#createActivityButton {
+  margin-left: 25%;
+  margin-top: 10%;
+}
+
+#updateMessage {
+  margin-left: 0%;
+  margin-top: 10%;
+}
+
+#updatePerson {
+  margin-left: -25%;
+  margin-top: 10%;
+}
+
+#createMessageButton {
+  margin-left: 20%;
+  margin-top: 10%;
 }
 
 .category_button {

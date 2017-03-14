@@ -1,8 +1,9 @@
-<h1>New Activity</h1>
-
+<h2>New Activity</h2>
+<p><a data-ui-sref="activityIndex"> Back </a></p>
+<div class="form">
 <form>
-  <p>Select a Category</p>
-  <p><select name="categories" data-ng-model="vm.activity.category" />
+  <label><span> Category:</span>
+    <select name="categories" data-ng-model="vm.activity.category" />
       <option value="">
       <option value="Concerts">Concerts</option>
       <option value="Dinner">Dinner</option>
@@ -14,19 +15,22 @@
       <option value="Travel">Travel</option>
       <option value="Water_Sports">Water Sports</option>
       <option value="Winter_Sports">Winter Sports</option>
-    </select></p>
-  <br>
-  <p><input placeholder="Name" data-ng-model="vm.activity.event_name" /></p>
-  <br>
-  <p><input placeholder="Location" data-ng-model="vm.activity.location" /></p>
-  <br>
-  <p><input placeholder="Date" data-ng-model="vm.activity.date" /></p>
-  <br>
-  <textarea placeholder="Blurb" value="vm.activity.blurb" data-ng-model="vm.activity.blurb"></textarea></p>
-  <br>
-  <p><input placeholder="Time" data-ng-model="vm.activity.time" /></p>
-  <br>
-  <p><input placeholder="Price" data-ng-model="vm.activity.price" /></p>
-  <br>
-  <p><button data-ng-click="vm.create()"> Create Entry </button></p>
+    </select>
+  </label>
+
+  <label> <span>Event Name:</span><input class="fieldBox" data-ng-model="vm.activity.event_name" /></label>
+
+  <label> <span>Location:</span><input class="fieldBox"  data-ng-model="vm.activity.location" /></label>
+
+  <label> <span>Date:</span><input class="fieldBox"  data-ng-model="vm.activity.date" /></label>
+
+  <label> <span>Time: </span><input class="fieldBox"  data-ng-model="vm.activity.time" /></label>
+  <label><span>Price:</span><input class="fieldBox"  data-ng-model="vm.activity.price" /></label>
+
+  <label> <span> Blurb:</span><textarea id="blurbArea"  value="vm.activity.blurb" data-ng-model="vm.activity.blurb"></textarea></label>
+
+  <div class="buttons">
+    <button class="createButton" id="createActivityButton" data-ng-click="vm.create()"> Create </button></p>
+  </div>
 </form>
+</div>
