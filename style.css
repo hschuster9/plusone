@@ -132,3 +132,52 @@ main {
   margin-left: 20%;
   margin-top: 10%;
 }
+
+.category_button {
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
+  color: white;
+  font-size: 20px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.concerts {
+  background-image: url("/images/concerts.jpg");
+}
+
+.dinner {
+  background-image: url("/images/dinner.jpg");
+}
+
+.exercise {
+  background-image: url("/images/men jogging.jpeg");
+}
+
+.festivals {
+  background-image: url("/images/festivals.jpeg");
+}
+
+.hiking {
+  background-image: url("/images/hiking.jpeg");
+}
+
+.movies {
+  background-image: url("/images/movies.jpg");
+}
+
+.theatre {
+  background-image: url("/images/theatre.jpg");
+}
+
+.travel {
+  background-image: url("/images/travel.jpg");
+}
+
+.winterSports {
+  background-image: url("/images/winter-sports.jpg");
+}
+
+.waterSports {
+  background-image: url("/images/water-sports.jpg");
+}
