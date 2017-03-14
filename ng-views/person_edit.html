@@ -1,7 +1,12 @@
 <h1> Edit {{vm.person.name}}</h1>
 
+<div class="form">
 <form>
-  <input placeholder="Name" data-ng-model="vm.person.name" />
-  <button type="button" data-ng-click="vm.update()">Update</button>
-  <button type="button" data-ng-click="vm.destroy()">Delete</button>
+  <label><span> Name: </span><input class="fieldBox" placeholder="Name" data-ng-model="vm.person.name" /></label>
+
+  <div class="buttons">
+    <button type="button" class="updateButton" data-ng-click="vm.update()">Update</button>
+    <button type="button" class="deleteButton" data-ng-click="vm.destroy()">Delete</button>
+  </div>
 </form>
+</div>
