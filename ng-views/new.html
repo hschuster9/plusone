@@ -1,7 +1,20 @@
 <h1>New Activity</h1>
 
 <form>
-  <p><input placeholder="Category" data-ng-model="vm.activity.category" /></p>
+  <p>Select a Category</p>
+  <p><select name="categories" data-ng-model="vm.activity.category" />
+      <option value="">
+      <option value="Concerts">Concerts</option>
+      <option value="Dinner">Dinner</option>
+      <option value="Exercise">Exercise</option>
+      <option value="Festivals">Festivals</option>
+      <option value="Hiking_and_Outdoors">Hiking</option>
+      <option value="Movies">Movies</option>
+      <option value="Theatre">Theatre</option>
+      <option value="Travel">Travel</option>
+      <option value="Water_Sports">Water Sports</option>
+      <option value="Winter_Sports">Winter Sports</option>
+    </select></p>
   <br>
   <p><input placeholder="Name" data-ng-model="vm.activity.event_name" /></p>
   <br>

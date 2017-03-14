@@ -81,3 +81,15 @@ main {
 .buttons {
   margin-left: 50%;
 }
+
+.category_button {
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
+  color: white;
+  font-size: 20px;
+}
+
+.concerts {
+  background-image: url("/images/concerts.jpg");
+}

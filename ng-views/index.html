@@ -4,11 +4,74 @@
 
   <p><a data-ui-sref="activityNew">Add a new activity</a></p>
 
-<button ng-click="vm.toggleConcerts = !vm.toggleConcerts">Concerts</button>
-<button ng-click="vm.toggleMovies = !vm.toggleMovies">Movies</button>
-<button ng-click="vm.toggleDinner = !vm.toggleDinner">Dinner</button>
+<button class="category_button concerts" ng-click="vm.toggleConcerts = !vm.toggleConcerts">Concerts</button>
+<button class="category_button dinner" ng-click="vm.toggleDinner = !vm.toggleDinner">Dinner</button>
+<button class="category_button exercise" ng-click="vm.toggleExercise = !vm.toggleExercise">Exercise</button>
+<button class="category_button festivals" ng-click="vm.toggleFestivals = !vm.toggleFestivals">Festivals</button>
+<button class="category_button hiking" ng-click="vm.toggleHiking_and_Outdoors = !vm.toggleHiking_and_Outdoors">Hiking and Outdoors</button>
+<button class="category_button movies" ng-click="vm.toggleMovies = !vm.toggleMovies">Movies</button>
+<button class="category_button theatre" ng-click="vm.toggleTheatre = !vm.toggleTheatre">Theatre</button>
+<button class="category_button travel" ng-click="vm.toggleTravel = !vm.toggleTravel">Travel</button>
+<button class="category_button winterSports" ng-click="vm.toggleWater_Sports = !vm.toggleWater_Sports">Water Sports</button>
+<button class="category_button waterSports" ng-click="vm.toggleWinter_Sports = !vm.toggleWinter_Sports">Winter Sports</button>
 
 <div ng-show="vm.toggleConcerts" data-ng-repeat="activity in vm.activities | filter: 'Concerts'">
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
+    <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <div ng-show="vm.toggleExpand[$index]">
+      <p>{{activity.category}}</p>
+      <p>{{activity.date}}</p>
+      <p>{{activity.location}}</p>
+      <p>{{activity.blurb}}</p>
+      <p>{{activity.time}}</p>
+      <p>{{activity.price}}</p>
+    </div>
+    <hr>
+</div>
+
+<div ng-show="vm.toggleDinner" data-ng-repeat="activity in vm.activities | filter: 'Dinner'">
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
+    <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <div ng-show="vm.toggleExpand[$index]">
+      <p>{{activity.category}}</p>
+      <p>{{activity.date}}</p>
+      <p>{{activity.location}}</p>
+      <p>{{activity.blurb}}</p>
+      <p>{{activity.time}}</p>
+      <p>{{activity.price}}</p>
+    </div>
+    <hr>
+</div>
+
+<div ng-show="vm.toggleExercise" data-ng-repeat="activity in vm.activities | filter: 'Exercise'">
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
+    <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <div ng-show="vm.toggleExpand[$index]">
+      <p>{{activity.category}}</p>
+      <p>{{activity.date}}</p>
+      <p>{{activity.location}}</p>
+      <p>{{activity.blurb}}</p>
+      <p>{{activity.time}}</p>
+      <p>{{activity.price}}</p>
+    </div>
+    <hr>
+</div>
+
+<div ng-show="vm.toggleFestivals" data-ng-repeat="activity in vm.activities | filter: 'Festivals'">
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
+    <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <div ng-show="vm.toggleExpand[$index]">
+      <p>{{activity.category}}</p>
+      <p>{{activity.date}}</p>
+      <p>{{activity.location}}</p>
+      <p>{{activity.blurb}}</p>
+      <p>{{activity.time}}</p>
+      <p>{{activity.price}}</p>
+    </div>
+    <hr>
+</div>
+
+<div ng-show="vm.toggleHiking_and_Outdoors" data-ng-repeat="activity in vm.activities | filter: 'Hiking_and_Outdoors'">
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
     <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
     <div ng-show="vm.toggleExpand[$index]">
@@ -36,7 +99,49 @@
     <hr>
 </div>
 
-<div ng-show="vm.toggleDinner" data-ng-repeat="activity in vm.activities | filter: 'Dinner'">
+<div ng-show="vm.toggleTheatre" data-ng-repeat="activity in vm.activities | filter: 'Theatre'">
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
+    <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <div ng-show="vm.toggleExpand[$index]">
+      <p>{{activity.category}}</p>
+      <p>{{activity.date}}</p>
+      <p>{{activity.location}}</p>
+      <p>{{activity.blurb}}</p>
+      <p>{{activity.time}}</p>
+      <p>{{activity.price}}</p>
+    </div>
+    <hr>
+</div>
+
+<div ng-show="vm.toggleTravel" data-ng-repeat="activity in vm.activities | filter: 'Travel'">
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
+    <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <div ng-show="vm.toggleExpand[$index]">
+      <p>{{activity.category}}</p>
+      <p>{{activity.date}}</p>
+      <p>{{activity.location}}</p>
+      <p>{{activity.blurb}}</p>
+      <p>{{activity.time}}</p>
+      <p>{{activity.price}}</p>
+    </div>
+    <hr>
+</div>
+
+<div ng-show="vm.toggleWater_Sports" data-ng-repeat="activity in vm.activities | filter: 'Water_Sports'">
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
+    <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <div ng-show="vm.toggleExpand[$index]">
+      <p>{{activity.category}}</p>
+      <p>{{activity.date}}</p>
+      <p>{{activity.location}}</p>
+      <p>{{activity.blurb}}</p>
+      <p>{{activity.time}}</p>
+      <p>{{activity.price}}</p>
+    </div>
+    <hr>
+</div>
+
+<div ng-show="vm.toggleWinter_Sports" data-ng-repeat="activity in vm.activities | filter: 'Winter_Sports'">
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
     <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
     <div ng-show="vm.toggleExpand[$index]">
