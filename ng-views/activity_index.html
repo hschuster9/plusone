@@ -7,10 +7,10 @@
 
     <div ng-show="vm.toggleExpand[$index]">
       <p>{{activity.category}}</p>
-      <p>{{activity.date}}</p>
+      <p>{{activity.date | date: 'MM/dd/yyyy'}}</p>
+      <p>{{activity.time | date: 'shortTime'}}</p>
       <p>{{activity.location}}</p>
       <p>{{activity.blurb}}</p>
-      <p>{{activity.time}}</p>
       <p>{{activity.price}}</p>
     </div>
     <hr>
