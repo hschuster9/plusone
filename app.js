@@ -151,7 +151,7 @@ angular
     this.activity = new ActivityFactory()
     this.create = function(){
       this.activity.$save(function(activity) {
-        $state.go("activityIndex");
+        $state.go("activityShow", {id: activity.id});
       });
     };
   }
@@ -172,7 +172,7 @@ angular
     }
     this.destroy = function(){
       this.activity.$delete({id: $stateParams.id}, function(activity){
-        $state.go("activityIndex")
+        $state.go("categoryIndex")
       });
     }
   }
