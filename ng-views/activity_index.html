@@ -3,8 +3,8 @@
 <p class="newActivity"><a data-ui-sref="activityNew">Create Activity</a></p>
 
 <div id="list" data-ng-repeat="activity in vm.activities | filter: vm.category">
-    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
-    <button class="detailsButton" ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a> <button class="expandButton" ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button></p>
+
     <div ng-show="vm.toggleExpand[$index]">
       <p>{{activity.category}}</p>
       <p>{{activity.date | date: 'MM/dd/yyyy'}}</p>
