@@ -1,32 +1,37 @@
-<h2>{{vm.activity.category}}</h2>
+<h2 class="category">{{vm.activity.category}}</h2>
 
 
-<div>
-
-  <p>{{vm.activity.event_name}}</p>
-  <p>{{vm.activity.date}}</p>
-  <p>{{vm.activity.location}}</p>
-  <p>{{vm.activity.blurb}}</p>
-  <p>{{vm.activity.time}}</p>
-  <p>{{vm.activity.price}}</p>
+<div class="activity">
+  <div class="activityText">
+  <p><span class="W">What: </span>{{vm.activity.event_name}}</p>
+  <p><span class="W">When: </span>{{vm.activity.date}}</p>
+  <p><span class="W">Where: </span>{{vm.activity.location}}</p>
+  <p><span class="W">Why: </span>{{vm.activity.blurb}}</p>
+  <p><span class="W">Time: </span>{{vm.activity.time}}</p>
+  <p><span class="W">Price: </span>{{vm.activity.price}}</p>
+  </div> 
 </div>
 
 <a data-ui-sref="activityEdit({id: vm.activity.id})">Edit Activity</a>
 
-<h2>PEOPLE</h2>
-<p><a data-ui-sref="personNew({activity_id: vm.activity.id})">New Person</a></p>
+<div>
+  <h2 class="people">Who's Joining</h2>
+     <p><a data-ui-sref="personNew({activity_id: vm.activity.id})">Join</a></p>
 
-<div class="personList">
-  <div data-ng-repeat="person in vm.people">
-    <p><a data-ui-sref="personEdit({activity_id: person.activity_id, id: person.id})">{{person.name}}</a></p>
+    <div data-ng-repeat="person in vm.people">
+      <div class="personList">
+        <p><a class="person" data-ui-sref="personEdit({activity_id: person.activity_id, id: person.id})">{{person.name}}</a></p>
+     </div>
+   </div>
+ </div>
+
+<div class="messageSection">
+  <h2 class="message">Messages</h2>
+  <p><a data-ui-sref="messageNew({activity_id: vm.activity.id})">Write a Message</a></p>
+
+  <div class="messageBox" data-ng-repeat="message in vm.messages">
+    <p><span class="messageContent">name: </span>{{message.author}}</p>
+    <p><span class="messageContent">message: </span>{{message.content}}</p>
+    <p><a data-ui-sref="messageEdit({activity_id: message.activity_id, id: message.id})">Edit Message</a></p>
   </div>
-</div>
-
-<h2>MESSAGES</h2>
-<p><a data-ui-sref="messageNew({activity_id: vm.activity.id})">New Message</a></p>
-
-<div class="messageBox" data-ng-repeat="message in vm.messages">
-  <p>{{message.author}}</p>
-  <p>{{message.content}}</p>
-  <p><a data-ui-sref="messageEdit({activity_id: message.activity_id, id: message.id})">Edit Message</a></p>
-</div>
+</div
