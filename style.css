@@ -180,12 +180,11 @@ main {
   opacity: 0.6;
 
 }
-
 .activityText {
   color: #000;
   text-align: center;
   word-wrap: break-word;
-  
+}
 .category_button {
   width: 100px;
   height: 100px;
@@ -205,7 +204,7 @@ main {
 }
 
 .exercise {
-  background-image: url("/images/men jogging.jpeg");
+  background-image: url("/images/jogging.jpg");
 }
 
 .festivals {
