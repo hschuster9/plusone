@@ -206,6 +206,9 @@ main {
   font-family: 'Quicksand', sans-serif;
   margin: 7px;
 }
+.category_button:hover {
+  opacity: 0.4 ;
+}
 
 .innerCategory {
   display: flex;
@@ -259,12 +262,13 @@ main {
 .detailsButton {
   font-family: 'Quicksand', sans-serif;
 }
-.miscellaneous {
-  background-image: url("");
-}
 
 .all {
-  background-image: url("");
+  background-image: url("/images/friends.jpg");
+}
+
+.miscellaneous {
+  background-image: url("/images/misc2.jpg");
 }
 
 .newActivity {
