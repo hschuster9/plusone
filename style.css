@@ -1,16 +1,35 @@
 html {
   padding-bottom: 10px;
   background-color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #5b59e8;
 }
 
+a:hover {
+  color: #9896f8
+}
+
+
 header {
-  background-color: green;
+  background-color: #2F0088;
   position: fixed;
   height: 120px;
   width: 100vw;
   top: 0;
   left: 0;
   padding-left: 10px;
+  color: white;
+}
+
+header h1 >a {
+  color: white;
+}
+
+header h1 > a:hover {
+  color: 	#DCDCDC;
 }
 
 main {
@@ -76,10 +95,11 @@ main {
 .updateButton, .createButton {
   border: none;
   padding: 8px 15px 8px 15px;
-  background: #4286f4;
+  /*background: #4286f4;*/
+  background: #2F0088;
   color: white;
   box-shadow: 1px 1px 4px #DADADA;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .deleteButton {
@@ -88,7 +108,7 @@ main {
   padding: 8px 15px 8px 15px;
   color: white;
   box-shadow: 1px 1px 4px #DADADA;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .buttons {
   margin-left: 40%;
@@ -167,4 +187,52 @@ main {
   color: #000;
   text-align: center;
   word-wrap: break-word;
+  
+.category_button {
+  width: 100px;
+  height: 100px;
+  background-size: 100% 100%;
+  color: white;
+  font-size: 20px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.concerts {
+  background-image: url("/images/concerts.jpg");
+}
+
+.dinner {
+  background-image: url("/images/dinner.jpg");
+}
+
+.exercise {
+  background-image: url("/images/men jogging.jpeg");
+}
+
+.festivals {
+  background-image: url("/images/festivals.jpeg");
+}
+
+.hiking {
+  background-image: url("/images/hiking.jpeg");
+}
+
+.movies {
+  background-image: url("/images/movies.jpg");
+}
+
+.theatre {
+  background-image: url("/images/theatre.jpg");
+}
+
+.travel {
+  background-image: url("/images/travel.jpg");
+}
+
+.winterSports {
+  background-image: url("/images/winter-sports.jpg");
+}
+
+.waterSports {
+  background-image: url("/images/water-sports.jpg");
 }
