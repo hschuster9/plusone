@@ -47,6 +47,9 @@ main {
   width: 30em;
   word-wrap: break-word;
   margin-bottom: 6px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px 0 #666B6D;
+  padding: 10px;
 }
 
 .personList {
@@ -95,7 +98,6 @@ main {
 .updateButton, .createButton {
   border: none;
   padding: 8px 15px 8px 15px;
-  /*background: #4286f4;*/
   background: #2F0088;
   color: white;
   box-shadow: 1px 1px 4px #DADADA;
