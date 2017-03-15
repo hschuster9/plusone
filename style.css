@@ -1,4 +1,3 @@
-
 html {
   padding-bottom: 10px;
   background-color: white;
@@ -262,6 +261,10 @@ main {
 
 .waterSports {
   background-image: url("/images/water-sports.jpg");
+}
+
+.detailsButton {
+  font-family: 'Quicksand', sans-serif;
 }
 
 .all {
