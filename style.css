@@ -198,6 +198,11 @@ main {
   color: white;
   font-size: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  margin: 7px;
+}
+
+.category_button:hover {
+  opacity: 0.4 ;
 }
 
 .concerts {
@@ -241,5 +246,5 @@ main {
 }
 
 .all {
-  background-image: url("/images/friends.jpg"); 
+  background-image: url("/images/friends.jpg");
 }
