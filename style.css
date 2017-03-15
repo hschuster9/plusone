@@ -183,6 +183,7 @@ main {
   margin-bottom: 10px;
   margin: 0 auto;
   border: 1px solid #FFF;
+  padding: 15px;
 }
 .activityText {
   color: #000;
@@ -224,43 +225,43 @@ main {
 }
 
 .concerts {
-  background-image: url("/images/concerts.jpg");
+  background-image: url("images/concerts.jpg");
 }
 
 .dinner {
-  background-image: url("/images/dinner.jpg");
+  background-image: url("images/dinner.jpg");
 }
 
 .exercise {
-  background-image: url("/images/jogging.jpg");
+  background-image: url("images/jogging.jpg");
 }
 
 .festivals {
-  background-image: url("/images/festivals.jpeg");
+  background-image: url("images/festivals.jpeg");
 }
 
 .hiking {
-  background-image: url("/images/hiking.jpeg");
+  background-image: url("images/hiking.jpeg");
 }
 
 .movies {
-  background-image: url("/images/movies.jpg");
+  background-image: url("images/movies.jpg");
 }
 
 .theatre {
-  background-image: url("/images/theatre.jpg");
+  background-image: url("images/theatre.jpg");
 }
 
 .travel {
-  background-image: url("/images/travel.jpg");
+  background-image: url("images/travel.jpg");
 }
 
 .winterSports {
-  background-image: url("/images/winter-sports.jpg");
+  background-image: url("images/winter-sports.jpg");
 }
 
 .waterSports {
-  background-image: url("/images/water-sports.jpg");
+  background-image: url("images/water-sports.jpg");
 }
 
 .detailsButton {
@@ -268,11 +269,11 @@ main {
 }
 
 .all {
-  background-image: url("/images/friends.jpg");
+  background-image: url("images/friends.jpg");
 }
 
 .miscellaneous {
-  background-image: url("/images/misc2.jpg");
+  background-image: url("images/misc2.jpg");
 }
 
 .newActivity {
@@ -297,10 +298,12 @@ main {
 
 .home {
   font-size: 25px;
+  width: 200px;
 }
 
 .headerRight {
   margin-right: 20px;
+  width: 200px;
 }
 
 select {
@@ -314,4 +317,8 @@ select {
 
 .headerRight > input {
   font-family: 'Quicksand', sans-serif;
+}
+
+.categoryTitle {
+  text-align: center;
 }
