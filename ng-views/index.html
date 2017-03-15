@@ -13,7 +13,7 @@
 <button class="category_button travel" ng-click="vm.categorySearch = 'Travel'">Travel</button>
 <button class="category_button waterSports" ng-click="vm.categorySearch = 'Water Sports'">Water Sports</button>
 <button class="category_button winterSports" ng-click="vm.categorySearch = 'Winter Sports'">Winter Sports</button>
-<button class="category_button" ng-click="vm.categorySearch = ''">All</button>
+<button class="category_button all" ng-click="vm.categorySearch = 'All'">All</button>
 
 
 <div data-ng-repeat="activity in vm.activities | filter: vm.categorySearch">

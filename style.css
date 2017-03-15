@@ -239,3 +239,7 @@ main {
 .waterSports {
   background-image: url("/images/water-sports.jpg");
 }
+
+.all {
+  background-image: url("/images/friends.jpg"); 
+}
