@@ -1,6 +1,6 @@
 <input type="hidden" ng-model="vm.category">
 
-<p><a data-ui-sref="activityNew">Create Activity</a></p>
+<p class="newActivity"><a data-ui-sref="activityNew">Create Activity</a></p>
 
 <div id="list" data-ng-repeat="activity in vm.activities | filter: vm.category">
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
