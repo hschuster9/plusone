@@ -1,5 +1,7 @@
 <h2>Home</h2>
+
 <input class="searchBar" placeholder="Search" type="text" ng-model="vm.search">
+
   <p><a data-ui-sref="activityNew">Create Activity</a></p>
 
 <button class="category_button concerts" ng-click="vm.toggleConcerts = !vm.toggleConcerts">Concerts</button>
@@ -12,6 +14,7 @@
 <button class="category_button travel" ng-click="vm.toggleTravel = !vm.toggleTravel">Travel</button>
 <button class="category_button winterSports" ng-click="vm.toggleWater_Sports = !vm.toggleWater_Sports">Water Sports</button>
 <button class="category_button waterSports" ng-click="vm.toggleWinter_Sports = !vm.toggleWinter_Sports">Winter Sports</button>
+
 
 <div ng-show="vm.toggleConcerts" data-ng-repeat="activity in vm.activities | filter: 'Concerts'">
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
