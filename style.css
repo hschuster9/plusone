@@ -206,7 +206,11 @@ main {
   color: white;
   font-size: 50px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  margin: 10px 10px;
+  margin: 7px;
+}
+
+.category_button:hover {
+  opacity: 0.4 ;
 }
 
 .innerCategory {
@@ -215,7 +219,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 350px;
-  height: 200px;
+  height: 200px; 
 }
 
 .concerts {
@@ -258,12 +262,12 @@ main {
   background-image: url("/images/water-sports.jpg");
 }
 
-.miscellaneous {
-  background-image: url("");
+.all {
+  background-image: url("/images/friends.jpg");
 }
 
-.all {
-  background-image: url("");
+.miscellaneous {
+  background-image: url("/images/misc2.jpg"); 
 }
 
 .newActivity {
