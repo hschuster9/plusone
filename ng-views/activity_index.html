@@ -1,0 +1,17 @@
+<input type="hidden" ng-model="vm.category">
+
+<p><a data-ui-sref="activityNew">Create Activity</a></p>
+
+<div id="list" data-ng-repeat="activity in vm.activities | filter: vm.category">
+    <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a></p>
+    <button ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button>
+    <div ng-show="vm.toggleExpand[$index]">
+      <p>{{activity.category}}</p>
+      <p>{{activity.date}}</p>
+      <p>{{activity.location}}</p>
+      <p>{{activity.blurb}}</p>
+      <p>{{activity.time}}</p>
+      <p>{{activity.price}}</p>
+    </div>
+    <hr>
+</div>

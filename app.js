@@ -23,8 +23,12 @@ angular
       update: {method: "PUT"},
     });
   })
+  .controller("CategoryIndexController", [
+    CategoryIndexControllerFunction
+  ])
   .controller("ActivityIndexController", [
     "ActivityFactory",
+    "$stateParams",
     ActivityIndexControllerFunction
   ])
   .controller("ActivityNewController", [
@@ -73,9 +77,15 @@ angular
 
   function RouterFunction($stateProvider){
     $stateProvider
-      .state("activityIndex", {
+      .state("categoryIndex", {
         url: "",
-        templateUrl: "ng-views/index.html",
+        templateUrl: "ng-views/category_index.html",
+        controller: "CategoryIndexController",
+        controllerAs: "vm"
+      })
+      .state("activityIndex", {
+        url: "categories/:category",
+        templateUrl: "ng-views/activity_index.html",
         controller: "ActivityIndexController",
         controllerAs: "vm"
       })
@@ -129,8 +139,13 @@ angular
       });
   }
 
-  function ActivityIndexControllerFunction(ActivityFactory, $state){
+  function CategoryIndexControllerFunction(){
+
+  }
+
+  function ActivityIndexControllerFunction(ActivityFactory, $stateParams, $state){
     this.activities = ActivityFactory.query()
+    this.category = $stateParams.category
   }
 
   function ActivityNewControllerFunction(ActivityFactory, $state){
