@@ -189,9 +189,19 @@ main {
   word-wrap: break-word;
 }
 
+.categoryMenu {
+  display: flex;
+  width: calc(100vw - 20px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .category_button {
   width: 400px;
   height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-size: 100% 100%;
   color: white;
   font-size: 50px;
@@ -201,6 +211,15 @@ main {
 
 .category_button:hover {
   opacity: 0.4 ;
+}
+
+.innerCategory {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 200px; 
 }
 
 .concerts {
@@ -249,4 +268,9 @@ main {
 
 .miscellaneous {
   background-image: url("/images/misc2.jpg"); 
+}
+
+.newActivity {
+  text-align: right;
+  margin-right: 10px;
 }
