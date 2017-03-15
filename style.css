@@ -209,6 +209,10 @@ main {
   margin: 7px;
 }
 
+.category_button:hover {
+  opacity: 0.4 ;
+}
+
 .innerCategory {
   display: flex;
   flex-wrap: wrap;
@@ -258,12 +262,12 @@ main {
   background-image: url("/images/water-sports.jpg");
 }
 
-.miscellaneous {
-  background-image: url("");
+.all {
+  background-image: url("/images/friends.jpg");
 }
 
-.all {
-  background-image: url("");
+.miscellaneous {
+  background-image: url("/images/misc2.jpg");
 }
 
 .newActivity {
