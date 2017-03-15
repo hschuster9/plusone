@@ -1,3 +1,4 @@
+
 html {
   padding-bottom: 10px;
   background-color: white;
@@ -11,7 +12,6 @@ a {
 a:hover {
   color: #9896f8
 }
-
 
 header {
   background-color: #2F0088;
@@ -85,14 +85,12 @@ main {
   border-radius: 3px;
 }
 
-
 #blurbArea {
   height: 90px;
   width: 45%;
   box-shadow: 1px 1px 4px #EBEBEB;
   border-radius: 3px;
   border-color: #c4c9d1;
-
 }
 
 .updateButton, .createButton {
@@ -182,7 +180,6 @@ main {
   margin: 0 auto;
   border: 1px solid #FFF;
 }
-
 .activityText {
   color: #000;
   text-align: center;
@@ -206,9 +203,9 @@ main {
   color: white;
   font-size: 50px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: 'Quicksand', sans-serif;
   margin: 7px;
 }
-
 .category_button:hover {
   opacity: 0.4 ;
 }
@@ -219,7 +216,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 350px;
-  height: 200px; 
+  height: 200px;
 }
 
 .concerts {
@@ -262,12 +259,16 @@ main {
   background-image: url("/images/water-sports.jpg");
 }
 
+.detailsButton {
+  font-family: 'Quicksand', sans-serif;
+}
+
 .all {
   background-image: url("/images/friends.jpg");
 }
 
 .miscellaneous {
-  background-image: url("/images/misc2.jpg"); 
+  background-image: url("/images/misc2.jpg");
 }
 
 .newActivity {
