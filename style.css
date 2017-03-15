@@ -1,4 +1,3 @@
-
 html {
   padding-bottom: 10px;
   background-color: white;
@@ -283,6 +282,7 @@ main {
 
 .expandButton {
   margin-left: 7px;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .logo {
@@ -309,4 +309,9 @@ select {
 
 .searchButton {
   margin-left: 7px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.headerRight > input {
+  font-family: 'Quicksand', sans-serif;
 }
