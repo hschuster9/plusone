@@ -140,7 +140,6 @@ angular
   }
 
   function CategoryIndexControllerFunction(){
-
   }
 
   function ActivityIndexControllerFunction(ActivityFactory, $stateParams, $state){
