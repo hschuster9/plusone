@@ -14,12 +14,12 @@ angular
     ActivityFactoryFunction
   ])
   .factory("PeopleFactory", function($resource){
-    return $resource ("http://localhost:3000/activities/:activity_id/people/:id", {}, {
+    return $resource ("https://plusoneproject.herokuapp.com/activities/:activity_id/people/:id", {}, {
         update: {method: "PUT"},
       });
   })
   .factory("MessageFactory", function($resource){
-    return $resource ("http://localhost:3000/activities/:activity_id/messages/:id", {}, {
+    return $resource ("https://plusoneproject.herokuapp.com/activities/:activity_id/messages/:id", {}, {
       update: {method: "PUT"},
     });
   })
@@ -134,7 +134,7 @@ angular
   }
 
   function ActivityFactoryFunction($resource){
-    return  $resource("http://localhost:3000/activities/:id", {}, {
+    return  $resource("https://plusoneproject.herokuapp.com/activities/:id", {}, {
         update: {method: "PUT"},
       });
   }
