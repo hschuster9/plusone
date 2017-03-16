@@ -335,9 +335,11 @@ select {
 
 footer {
   background-color: #2F0088;
-  width: 100vw;
+  width: calc(100vw - 2px);
   height: 20px;
   color: #FFF;
   text-align: center;
-  font-size: 10px; 
+  font-size: 10px;
+  margin-left: -6px;
+
 }
