@@ -1,5 +1,5 @@
 html {
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   background-color: white;
   font-family: 'Quicksand', sans-serif;
 }
@@ -38,7 +38,7 @@ header .home > a:hover {
 
 main {
   padding-top: 120px;
-  min-height: calc(100vh - 158px);
+  min-height: calc(100vh - 168px);
   width: calc(100vw - 8px);
   background-color: white;
   padding-left: 10px;
@@ -335,9 +335,19 @@ select {
 
 footer {
   background-color: #2F0088;
-  width: 100vw;
+  width: calc(100vw - 2px);
   height: 20px;
   color: #FFF;
   text-align: center;
-  font-size: 10px; 
+  font-size: 10px;
+  margin-left: -6px;
+  margin-bottom: 0px;
+}
+
+footer p {
+  margin-bottom: 0px;
+}
+
+body {
+  margin-bottom: 0px;
 }
