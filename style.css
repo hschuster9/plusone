@@ -38,7 +38,7 @@ header .home > a:hover {
 
 main {
   padding-top: 120px;
-  min-height: calc(100vh - 168px);
+  min-height: calc(100vh - 248px);
   width: calc(100vw - 8px);
   background-color: white;
   padding-left: 10px;
@@ -335,7 +335,7 @@ select {
 
 footer {
   background-color: #2F0088;
-  width: calc100vw;
+  width: 100vw;
   height: 20px;
   color: #FFF;
   text-align: center;
