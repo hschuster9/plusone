@@ -2,16 +2,21 @@
 
 <p class="newActivity"><a data-ui-sref="activityNew">Create Activity</a></p>
 
+
+
+<h1 class="categoryTitle">{{vm.category ? "Results for " + vm.category : "All Activities"}}</h1>
+
 <div id="list" data-ng-repeat="activity in vm.activities | filter: vm.category">
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a> <button class="expandButton" ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button></p>
 
     <div ng-show="vm.toggleExpand[$index]">
-      <p>{{activity.category}}</p>
-      <p>{{activity.date | date: 'MM/dd/yyyy'}}</p>
-      <p>{{activity.time | date: 'shortTime'}}</p>
-      <p>{{activity.location}}</p>
-      <p>{{activity.blurb}}</p>
-      <p>{{activity.price}}</p>
+      <p><span>What:</span> {{activity.category}}</p>
+      <p><span>When:</span> {{activity.date | date: 'MM/dd/yyyy'}} at {{activity.time | date: 'shortTime'}}</p>
+      <p><span>Where:</span> {{activity.location}}</p>
+      <p><span>Why:</span> {{activity.blurb}}</p>
+      <p><span>Cost:</span> {{activity.price}}</p>
     </div>
     <hr>
 </div>
+
+<p class="noResult">{{(vm.activities|filter: vm.category).length ? "" : "Oh noes! No one's planning any events matching that search... yet!"}}</p>
