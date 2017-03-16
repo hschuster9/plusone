@@ -1,16 +1,27 @@
 # +One
 
 ## Overview
-+One is a web application designed to help people find others to join them in an activity. It was created by Nyketha Lyken, Will Hawkins, and Hannah Schuster as their group project
++One is a web application designed to help people find others to join them in an activity.
+
+Created by
+* Nyketha Lyken
+* Will Hawkins
+* Hannah Schuster
+
+Deployed app:
+
+https://hschuster9.github.io/plusone/
 
 ## Technologies Used
 
 * Ruby on Rails API with JSON
+  * Repository: https://github.com/hschuster9/project3_rails
+  * Deployed on Heroku: https://plusoneproject.herokuapp.com/activities
 * AngularJS
 
 ## Team Member Roles
 
-Instead of having set assigned roles for each team member, we worked together closely so that we could all help troubleshoot issues. This worked well for us and kept everyone in the loop. A more specific breakdown of how we worked on the project can be found on Trello:
+Instead of having set assigned roles for each team member, we worked together closely so that everything was transparent and we could all help troubleshoot issues. This worked well for us and kept everyone in the loop. A more specific breakdown of how we worked on the project can be found on Trello:
 
 https://trello.com/b/PHLtKXLb/project-3
 
