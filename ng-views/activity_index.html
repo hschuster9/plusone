@@ -10,6 +10,7 @@
     <p><a ui-sref="activityShow({id: activity.id})">{{activity.event_name}}</a> <button class="expandButton" ng-click="vm.toggleExpand[$index] = !vm.toggleExpand[$index]">Details</button></p>
 
     <div ng-show="vm.toggleExpand[$index]">
+
       <p><span>What:</span> {{activity.category}}</p>
       <p><span>When:</span> {{activity.date | date: 'MM/dd/yyyy'}} at {{activity.time | date: 'shortTime'}}</p>
       <p><span>Where:</span> {{activity.location}}</p>
