@@ -78,13 +78,13 @@ angular
   function RouterFunction($stateProvider){
     $stateProvider
       .state("categoryIndex", {
-        url: "",
+        url: "/",
         templateUrl: "ng-views/category_index.html",
         controller: "CategoryIndexController",
         controllerAs: "vm"
       })
       .state("activityIndex", {
-        url: "categories/:category",
+        url: "/categories/:category",
         templateUrl: "ng-views/activity_index.html",
         controller: "ActivityIndexController",
         controllerAs: "vm"
