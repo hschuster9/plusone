@@ -38,7 +38,7 @@ header .home > a:hover {
 
 main {
   padding-top: 120px;
-  min-height: calc(100vh - 168px);
+  min-height: calc(100vh - 248px);
   width: calc(100vw - 8px);
   background-color: white;
   padding-left: 10px;
