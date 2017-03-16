@@ -8,9 +8,7 @@ Created by
 * Will Hawkins
 * Hannah Schuster
 
-Deployed app:
-
-https://hschuster9.github.io/plusone/
+Deployed application: https://hschuster9.github.io/plusone/
 
 ## Technologies Used
 
@@ -21,9 +19,7 @@ https://hschuster9.github.io/plusone/
 
 ## Team Member Roles
 
-Instead of having set assigned roles for each team member, we worked together closely so that everything was transparent and we could all help troubleshoot issues. This worked well for us and kept everyone in the loop. A more specific breakdown of how we worked on the project can be found on Trello:
-
-https://trello.com/b/PHLtKXLb/project-3
+Instead of having set assigned roles for each team member, we worked together closely so that everything was transparent and we could all help troubleshoot issues. This worked well for us and kept everyone in the loop. A more specific breakdown on how we worked on the project can be found on Trello: https://trello.com/b/PHLtKXLb/project-3
 
 ## User Stories
 
