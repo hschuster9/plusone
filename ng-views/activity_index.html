@@ -19,4 +19,4 @@
     <hr>
 </div>
 
-<p>{{(vm.activities|filter: vm.category).length}}</p>
+<p>{{(vm.activities|filter: vm.category).length ? "" : "No Results Matching vm.category"}}</p>
