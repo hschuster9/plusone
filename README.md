@@ -8,7 +8,7 @@ Created by
 * Will Hawkins
 * Hannah Schuster
 
-Deployed application: https://hschuster9.github.io/plusone/
+Deployed application: https://hschuster9.github.io/plusone/#/
 
 ## Technologies Used
 
