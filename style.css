@@ -89,9 +89,9 @@ main {
   border-radius: 3px;
 }
 
-#blurbArea {
+.blurbArea {
   height: 90px;
-  width: 45%;
+  width: 30%;
   box-shadow: 1px 1px 4px #EBEBEB;
   border-radius: 3px;
   border-color: #c4c9d1;
@@ -104,6 +104,8 @@ main {
   color: white;
   box-shadow: 1px 1px 4px #DADADA;
   border-radius: 2px;
+  margin-top: 20px;
+  margin-left: -80px;
 }
 
 .deleteButton {
@@ -118,28 +120,8 @@ main {
   margin-left: 40%;
 }
 
-#createNewPersonButton {
+#createActivityButton, #createMessageButton, #createNewPersonButton {
   margin-left: 0%;
-  margin-top: 10%;
-}
-
-#createActivityButton {
-  margin-left: 25%;
-  margin-top: 10%;
-}
-
-#updateMessage {
-  margin-left: 0%;
-  margin-top: 10%;
-}
-
-#updatePerson {
-  margin-left: -25%;
-  margin-top: 10%;
-}
-
-#createMessageButton {
-  margin-left: 20%;
   margin-top: 10%;
 }
 
@@ -334,20 +316,20 @@ select {
   margin-bottom: 100px;
 }
 
-footer {
+/*footer {
   background-color: #2F0088;
   width: 100vw;
   height: 20px;
   color: #FFF;
   text-align: center;
   font-size: 10px;
-  margin-left: -8px;
+  margin-left: -6px;
   margin-bottom: 0px;
 }
 
 footer p {
   margin-bottom: 0px;
-}
+}*/
 
 body {
   margin-bottom: 0px;
