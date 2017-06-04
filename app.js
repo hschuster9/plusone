@@ -13,6 +13,7 @@ angular
     "$resource",
     ActivityFactoryFunction
   ])
+
   .factory("PeopleFactory", function($resource){
     return $resource ("https://plusoneproject.herokuapp.com/activities/:activity_id/people/:id", {}, {
         update: {method: "PUT"},
@@ -132,7 +133,6 @@ angular
         controllerAs: "vm"
       })
   }
-
   function ActivityFactoryFunction($resource){
     return  $resource("https://plusoneproject.herokuapp.com/activities/:id", {}, {
         update: {method: "PUT"},
@@ -140,6 +140,7 @@ angular
   }
 
   function CategoryIndexControllerFunction(){
+
   }
 
   function ActivityIndexControllerFunction(ActivityFactory, $stateParams, $state){
@@ -211,17 +212,6 @@ function MessageNewControllerFunction(MessageFactory, $stateParams, $state) {
     function(activity) {
       $state.go("activityShow", {id: $stateParams.activity_id})
     });
-  }
-}
-
-function MessageNewControllerFunction( MessageFactory, $stateParams, $state) {
-  this.message =  new MessageFactory()
-  this.create = function(){
-    this.message.activity_id = $stateParams.activity_id
-    this.message.$save({activity_id: $stateParams.activity_id},
-    function(activity) {
-      $state.go("activityShow", {id: $stateParams.activity_id})
-    })
   }
 }
 

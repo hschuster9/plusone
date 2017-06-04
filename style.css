@@ -87,6 +87,7 @@ main {
   width: 150px;
   box-shadow: 1px 1px 4px #EBEBEB;
   border-radius: 3px;
+  margin-top: 6px;
 }
 
 .blurbArea {
